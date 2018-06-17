@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Version";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Go Back", "Index", "Info", new { id = ViewBag.appname }, null)
+
+<h2>Version</h2>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th>Version</th>
+            <td>@ViewBag.AppVersion</td>
+        </tr>
+        <tr>
+            <th>Instance Environment</th>
+            <td>@ViewBag.IE</td>
+        </tr>
+        <tr>
+            <th>Install Date</th>
+            <td>@ViewBag.InstallDate</td>
+        </tr>
+        <tr>  
+            <th>Upgrade Date</th>
+            <td>@ViewBag.UpgradeDate</td>
+        </tr>
+    </tbody>
+</table>
+
+<h5>Server Database</h5>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th>Server Name</th>
+            <td>@ViewBag.ServerName</td>
+        </tr>
+        <tr>
+            <th>Server Type</th>
+            <td>@ViewBag.ServerType</td>
+        </tr>
+        <tr>
+            <th>Operating System</th>
+            <td>@ViewBag.ServerOS</td>
+        </tr>
+        <tr>
+            <th>Server URL</th>
+            <td>@ViewBag.ServerURL</td>
+        </tr>
+        <tr>
+            <th>Database Name</th>
+            <td>@ViewBag.DBName</td>
+        </tr>
+        <tr>
+            <th>Database Type</th>
+            <td>@ViewBag.DBType</td>
+        </tr>
+        <tr>     
+          <th>Instance Environement</th>
+            <td>@ViewBag.ServerIE</td>
+        </tr>
+    </tbody>
+</table>

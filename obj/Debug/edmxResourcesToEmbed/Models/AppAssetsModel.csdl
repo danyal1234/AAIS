@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppAssetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppADGroup">
+    <Key>
+      <PropertyRef Name="AppADID" />
+    </Key>
+    <Property Name="AppADID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppIDFK" Type="Int32" Nullable="false" />
+    <Property Name="AppHardwareName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AppHardwareType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AppHardwareComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AppMain" Relationship="Self.FK_AppADGroups_ToTable" FromRole="AppADGroups" ToRole="AppMain" />
+  </EntityType>
+  <EntityType Name="AppAscHardware">
+    <Key>
+      <PropertyRef Name="AppADID" />
+    </Key>
+    <Property Name="AppADID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppIDFK" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AppMain" Relationship="Self.FK_AppAscHardware_ToTable" FromRole="AppAscHardware" ToRole="AppMain" />
+  </EntityType>
+  <EntityType Name="AppAscRprt">
+    <Key>
+      <PropertyRef Name="AppServerID" />
+    </Key>
+    <Property Name="AppServerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppIDFK" Type="Int32" Nullable="false" />
+    <Property Name="AppAscRprtName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppAscRprtServer" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppAscRprtPATH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppAscRprtUA" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AppMain" Relationship="Self.FK_AppAscRprt_ToTable" FromRole="AppAscRprt" ToRole="AppMain" />
+  </EntityType>
+  <EntityType Name="AppAscSoftware">
+    <Key>
+      <PropertyRef Name="AppAscSoftID" />
+    </Key>
+    <Property Name="AppAscSoftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppIDFK" Type="Int32" Nullable="false" />
+    <Property Name="AppAscServerName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppAscServerVersion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppAscRprtPATH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppAscRprtUA" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AppMain" Relationship="Self.FK_AppAscSoftware_ToTable" FromRole="AppAscSoftware" ToRole="AppMain" />
+  </EntityType>
+  <EntityType Name="AppContract">
+    <Key>
+      <PropertyRef Name="VenContractID" />
+    </Key>
+    <Property Name="VenContractID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenContractNum" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VenContractAdmin" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VenContractStart" Type="DateTime" Precision="3" />
+    <Property Name="VenContractEnd" Type="DateTime" Precision="3" />
+    <Property Name="VenContractRenew" Type="DateTime" Precision="3" />
+    <Property Name="VenContractComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VenIDFK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppContract_ToTable" FromRole="AppContract" ToRole="AppVendor" />
+  </EntityType>
+  <EntityType Name="ApplicationVersion">
+    <Key>
+      <PropertyRef Name="VersionID" />
+    </Key>
+    <Property Name="VersionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppVersion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AppIE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AppInstallData" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AppUpgradeDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AppIDFK" Type="Int32" Nullable="false" />
+    <Property Name="AppServerIDFK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppMain" Relationship="Self.FK_ApplicationVersion_ToTable" FromRole="ApplicationVersion" ToRole="AppMain" />
+    <NavigationProperty Name="AppServerDB" Relationship="Self.FK_ApplicationVersion_ToTable_2" FromRole="ApplicationVersion" ToRole="AppServerDB" />
+  </EntityType>
+  <EntityType Name="AppMain">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AppDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AppType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeployType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="LiscType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="LiscNum" Type="Int32" />
+    <Property Name="UserNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AppAccess" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VenIDFK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppADGroups" Relationship="Self.FK_AppADGroups_ToTable" FromRole="AppMain" ToRole="AppADGroups" />
+    <NavigationProperty Name="AppAscHardwares" Relationship="Self.FK_AppAscHardware_ToTable" FromRole="AppMain" ToRole="AppAscHardware" />
+    <NavigationProperty Name="AppAscRprts" Relationship="Self.FK_AppAscRprt_ToTable" FromRole="AppMain" ToRole="AppAscRprt" />
+    <NavigationProperty Name="AppAscSoftwares" Relationship="Self.FK_AppAscSoftware_ToTable" FromRole="AppMain" ToRole="AppAscSoftware" />
+    <NavigationProperty Name="ApplicationVersions" Relationship="Self.FK_ApplicationVersion_ToTable" FromRole="AppMain" ToRole="ApplicationVersion" />
+    <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppMain_ToTable" FromRole="AppMain" ToRole="AppVendor" />
+    <NavigationProperty Name="AppServerDBs" Relationship="Self.FK_AppServerDB_ToTable" FromRole="AppMain" ToRole="AppServerDB" />
+    <NavigationProperty Name="AppSupportInfoes" Relationship="Self.FK_AppSupportInfo_ToTable" FromRole="AppMain" ToRole="AppSupportInfo" />
+  </EntityType>
+  <EntityType Name="AppServerDB">
+    <Key>
+      <PropertyRef Name="AppServerID" />
+    </Key>
+    <Property Name="AppServerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppIDFK" Type="Int32" Nullable="false" />
+    <Property Name="AppServerName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppServerType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="AppServerOS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="AppServerURL" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppDBName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppServerIE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ApplicationVersions" Relationship="Self.FK_ApplicationVersion_ToTable_2" FromRole="AppServerDB" ToRole="ApplicationVersion" />
+    <NavigationProperty Name="AppMain" Relationship="Self.FK_AppServerDB_ToTable" FromRole="AppServerDB" ToRole="AppMain" />
+  </EntityType>
+  <EntityType Name="AppSupportInfo">
+    <Key>
+      <PropertyRef Name="AppSupportID" />
+    </Key>
+    <Property Name="AppSupportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppIDFK" Type="Int32" Nullable="false" />
+    <Property Name="AppSupportITOwner" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppSupportAdmin" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppSupportBOG" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AppSupportPMR" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="AppHours" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AppAfterHours" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="AppMaintenance" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AppMain" Relationship="Self.FK_AppSupportInfo_ToTable" FromRole="AppSupportInfo" ToRole="AppMain" />
+  </EntityType>
+  <EntityType Name="AppVendor">
+    <Key>
+      <PropertyRef Name="VenID" />
+    </Key>
+    <Property Name="VenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VendAddr" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="VendURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AppContracts" Relationship="Self.FK_AppContract_ToTable" FromRole="AppVendor" ToRole="AppContract" />
+    <NavigationProperty Name="AppMains" Relationship="Self.FK_AppMain_ToTable" FromRole="AppVendor" ToRole="AppMain" />
+    <NavigationProperty Name="AppVendorContacts" Relationship="Self.FK_AppVendorContact_ToTable" FromRole="AppVendor" ToRole="AppVendorContact" />
+    <NavigationProperty Name="AppVendorSupports" Relationship="Self.FK_AppVendorSupport_ToTable" FromRole="AppVendor" ToRole="AppVendorSupport" />
+  </EntityType>
+  <EntityType Name="AppVendorContact">
+    <Key>
+      <PropertyRef Name="VenContactID" />
+    </Key>
+    <Property Name="VenContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenContactFN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VenContactLN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VenContactTitle" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="VenContactEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="VenContactNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VenContactStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VenIDFK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppVendorContact_ToTable" FromRole="AppVendorContact" ToRole="AppVendor" />
+  </EntityType>
+  <EntityType Name="AppVendorSupport">
+    <Key>
+      <PropertyRef Name="VenSupportID" />
+    </Key>
+    <Property Name="VenSupportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenSupportHours" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VenSupportNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VenSupportEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="VenSupportComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VenIDFK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppVendorSupport_ToTable" FromRole="AppVendorSupport" ToRole="AppVendor" />
+  </EntityType>
+  <Association Name="FK_AppADGroups_ToTable">
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+    <End Role="AppADGroups" Type="Self.AppADGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppMain">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="AppADGroups">
+        <PropertyRef Name="AppIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppAscHardware_ToTable">
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+    <End Role="AppAscHardware" Type="Self.AppAscHardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppMain">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="AppAscHardware">
+        <PropertyRef Name="AppIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppAscRprt_ToTable">
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+    <End Role="AppAscRprt" Type="Self.AppAscRprt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppMain">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="AppAscRprt">
+        <PropertyRef Name="AppIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppAscSoftware_ToTable">
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+    <End Role="AppAscSoftware" Type="Self.AppAscSoftware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppMain">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="AppAscSoftware">
+        <PropertyRef Name="AppIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppContract_ToTable">
+    <End Role="AppVendor" Type="Self.AppVendor" Multiplicity="1" />
+    <End Role="AppContract" Type="Self.AppContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppVendor">
+        <PropertyRef Name="VenID" />
+      </Principal>
+      <Dependent Role="AppContract">
+        <PropertyRef Name="VenIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationVersion_ToTable">
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+    <End Role="ApplicationVersion" Type="Self.ApplicationVersion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppMain">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="ApplicationVersion">
+        <PropertyRef Name="AppIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationVersion_ToTable_2">
+    <End Role="AppServerDB" Type="Self.AppServerDB" Multiplicity="1" />
+    <End Role="ApplicationVersion" Type="Self.ApplicationVersion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppServerDB">
+        <PropertyRef Name="AppServerID" />
+      </Principal>
+      <Dependent Role="ApplicationVersion">
+        <PropertyRef Name="AppServerIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppMain_ToTable">
+    <End Role="AppVendor" Type="Self.AppVendor" Multiplicity="1" />
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppVendor">
+        <PropertyRef Name="VenID" />
+      </Principal>
+      <Dependent Role="AppMain">
+        <PropertyRef Name="VenIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppServerDB_ToTable">
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+    <End Role="AppServerDB" Type="Self.AppServerDB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppMain">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="AppServerDB">
+        <PropertyRef Name="AppIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppSupportInfo_ToTable">
+    <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+    <End Role="AppSupportInfo" Type="Self.AppSupportInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppMain">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="AppSupportInfo">
+        <PropertyRef Name="AppIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppVendorContact_ToTable">
+    <End Role="AppVendor" Type="Self.AppVendor" Multiplicity="1" />
+    <End Role="AppVendorContact" Type="Self.AppVendorContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppVendor">
+        <PropertyRef Name="VenID" />
+      </Principal>
+      <Dependent Role="AppVendorContact">
+        <PropertyRef Name="VenIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppVendorSupport_ToTable">
+    <End Role="AppVendor" Type="Self.AppVendor" Multiplicity="1" />
+    <End Role="AppVendorSupport" Type="Self.AppVendorSupport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppVendor">
+        <PropertyRef Name="VenID" />
+      </Principal>
+      <Dependent Role="AppVendorSupport">
+        <PropertyRef Name="VenIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AppAssetEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppADGroups" EntityType="Self.AppADGroup" />
+    <EntitySet Name="AppAscHardwares" EntityType="Self.AppAscHardware" />
+    <EntitySet Name="AppAscRprts" EntityType="Self.AppAscRprt" />
+    <EntitySet Name="AppAscSoftwares" EntityType="Self.AppAscSoftware" />
+    <EntitySet Name="AppContracts" EntityType="Self.AppContract" />
+    <EntitySet Name="ApplicationVersions" EntityType="Self.ApplicationVersion" />
+    <EntitySet Name="AppMains" EntityType="Self.AppMain" />
+    <EntitySet Name="AppServerDBs" EntityType="Self.AppServerDB" />
+    <EntitySet Name="AppSupportInfoes" EntityType="Self.AppSupportInfo" />
+    <EntitySet Name="AppVendors" EntityType="Self.AppVendor" />
+    <EntitySet Name="AppVendorContacts" EntityType="Self.AppVendorContact" />
+    <EntitySet Name="AppVendorSupports" EntityType="Self.AppVendorSupport" />
+    <AssociationSet Name="FK_AppADGroups_ToTable" Association="Self.FK_AppADGroups_ToTable">
+      <End Role="AppMain" EntitySet="AppMains" />
+      <End Role="AppADGroups" EntitySet="AppADGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppAscHardware_ToTable" Association="Self.FK_AppAscHardware_ToTable">
+      <End Role="AppMain" EntitySet="AppMains" />
+      <End Role="AppAscHardware" EntitySet="AppAscHardwares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppAscRprt_ToTable" Association="Self.FK_AppAscRprt_ToTable">
+      <End Role="AppMain" EntitySet="AppMains" />
+      <End Role="AppAscRprt" EntitySet="AppAscRprts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppAscSoftware_ToTable" Association="Self.FK_AppAscSoftware_ToTable">
+      <End Role="AppMain" EntitySet="AppMains" />
+      <End Role="AppAscSoftware" EntitySet="AppAscSoftwares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppContract_ToTable" Association="Self.FK_AppContract_ToTable">
+      <End Role="AppVendor" EntitySet="AppVendors" />
+      <End Role="AppContract" EntitySet="AppContracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationVersion_ToTable" Association="Self.FK_ApplicationVersion_ToTable">
+      <End Role="AppMain" EntitySet="AppMains" />
+      <End Role="ApplicationVersion" EntitySet="ApplicationVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationVersion_ToTable_2" Association="Self.FK_ApplicationVersion_ToTable_2">
+      <End Role="AppServerDB" EntitySet="AppServerDBs" />
+      <End Role="ApplicationVersion" EntitySet="ApplicationVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppMain_ToTable" Association="Self.FK_AppMain_ToTable">
+      <End Role="AppVendor" EntitySet="AppVendors" />
+      <End Role="AppMain" EntitySet="AppMains" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppServerDB_ToTable" Association="Self.FK_AppServerDB_ToTable">
+      <End Role="AppMain" EntitySet="AppMains" />
+      <End Role="AppServerDB" EntitySet="AppServerDBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppSupportInfo_ToTable" Association="Self.FK_AppSupportInfo_ToTable">
+      <End Role="AppMain" EntitySet="AppMains" />
+      <End Role="AppSupportInfo" EntitySet="AppSupportInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppVendorContact_ToTable" Association="Self.FK_AppVendorContact_ToTable">
+      <End Role="AppVendor" EntitySet="AppVendors" />
+      <End Role="AppVendorContact" EntitySet="AppVendorContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppVendorSupport_ToTable" Association="Self.FK_AppVendorSupport_ToTable">
+      <End Role="AppVendor" EntitySet="AppVendors" />
+      <End Role="AppVendorSupport" EntitySet="AppVendorSupports" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

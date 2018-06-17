@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppAssetModelStoreContainer" CdmEntityContainer="AppAssetEntities">
+    <EntitySetMapping Name="AppADGroups">
+      <EntityTypeMapping TypeName="AppAssetModel.AppADGroup">
+        <MappingFragment StoreEntitySet="AppADGroups">
+          <ScalarProperty Name="AppADID" ColumnName="AppADID" />
+          <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+          <ScalarProperty Name="AppHardwareName" ColumnName="AppHardwareName" />
+          <ScalarProperty Name="AppHardwareType" ColumnName="AppHardwareType" />
+          <ScalarProperty Name="AppHardwareComments" ColumnName="AppHardwareComments" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppAscHardwares">
+      <EntityTypeMapping TypeName="AppAssetModel.AppAscHardware">
+        <MappingFragment StoreEntitySet="AppAscHardware">
+          <ScalarProperty Name="AppADID" ColumnName="AppADID" />
+          <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppAscRprts">
+      <EntityTypeMapping TypeName="AppAssetModel.AppAscRprt">
+        <MappingFragment StoreEntitySet="AppAscRprt">
+          <ScalarProperty Name="AppServerID" ColumnName="AppServerID" />
+          <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+          <ScalarProperty Name="AppAscRprtName" ColumnName="AppAscRprtName" />
+          <ScalarProperty Name="AppAscRprtServer" ColumnName="AppAscRprtServer" />
+          <ScalarProperty Name="AppAscRprtPATH" ColumnName="AppAscRprtPATH" />
+          <ScalarProperty Name="AppAscRprtUA" ColumnName="AppAscRprtUA" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="ExpiryFlag" ColumnName="ExpiryFlag" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppAscSoftwares">
+      <EntityTypeMapping TypeName="AppAssetModel.AppAscSoftware">
+        <MappingFragment StoreEntitySet="AppAscSoftware">
+          <ScalarProperty Name="AppAscSoftID" ColumnName="AppAscSoftID" />
+          <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+          <ScalarProperty Name="AppAscServerName" ColumnName="AppAscServerName" />
+          <ScalarProperty Name="AppAscServerVersion" ColumnName="AppAscServerVersion" />
+          <ScalarProperty Name="AppAscRprtPATH" ColumnName="AppAscRprtPATH" />
+          <ScalarProperty Name="AppAscRprtUA" ColumnName="AppAscRprtUA" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="ExpiryFlag" ColumnName="ExpiryFlag" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppContracts">
+      <EntityTypeMapping TypeName="AppAssetModel.AppContract">
+        <MappingFragment StoreEntitySet="AppContract">
+          <ScalarProperty Name="VenContractID" ColumnName="VenContractID" />
+          <ScalarProperty Name="VenContractNum" ColumnName="VenContractNum" />
+          <ScalarProperty Name="VenContractAdmin" ColumnName="VenContractAdmin" />
+          <ScalarProperty Name="VenContractStart" ColumnName="VenContractStart" />
+          <ScalarProperty Name="VenContractEnd" ColumnName="VenContractEnd" />
+          <ScalarProperty Name="VenContractRenew" ColumnName="VenContractRenew" />
+          <ScalarProperty Name="VenContractComment" ColumnName="VenContractComment" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="VenIDFK" ColumnName="VenIDFK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationVersions">
+      <EntityTypeMapping TypeName="AppAssetModel.ApplicationVersion">
+        <MappingFragment StoreEntitySet="ApplicationVersion">
+          <ScalarProperty Name="VersionID" ColumnName="VersionID" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="AppIE" ColumnName="AppIE" />
+          <ScalarProperty Name="AppInstallData" ColumnName="AppInstallData" />
+          <ScalarProperty Name="AppUpgradeDate" ColumnName="AppUpgradeDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+          <ScalarProperty Name="AppServerIDFK" ColumnName="AppServerIDFK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppMains">
+      <EntityTypeMapping TypeName="AppAssetModel.AppMain">
+        <MappingFragment StoreEntitySet="AppMain">
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
+          <ScalarProperty Name="AppType" ColumnName="AppType" />
+          <ScalarProperty Name="DeployType" ColumnName="DeployType" />
+          <ScalarProperty Name="LiscType" ColumnName="LiscType" />
+          <ScalarProperty Name="LiscNum" ColumnName="LiscNum" />
+          <ScalarProperty Name="UserNum" ColumnName="UserNum" />
+          <ScalarProperty Name="AppAccess" ColumnName="AppAccess" />
+          <ScalarProperty Name="VenName" ColumnName="VenName" />
+          <ScalarProperty Name="VenIDFK" ColumnName="VenIDFK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppServerDBs">
+      <EntityTypeMapping TypeName="AppAssetModel.AppServerDB">
+        <MappingFragment StoreEntitySet="AppServerDB">
+          <ScalarProperty Name="AppServerID" ColumnName="AppServerID" />
+          <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+          <ScalarProperty Name="AppServerName" ColumnName="AppServerName" />
+          <ScalarProperty Name="AppServerType" ColumnName="AppServerType" />
+          <ScalarProperty Name="AppServerOS" ColumnName="AppServerOS" />
+          <ScalarProperty Name="AppServerURL" ColumnName="AppServerURL" />
+          <ScalarProperty Name="AppDBName" ColumnName="AppDBName" />
+          <ScalarProperty Name="AppServerIE" ColumnName="AppServerIE" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSupportInfoes">
+      <EntityTypeMapping TypeName="AppAssetModel.AppSupportInfo">
+        <MappingFragment StoreEntitySet="AppSupportInfo">
+          <ScalarProperty Name="AppSupportID" ColumnName="AppSupportID" />
+          <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+          <ScalarProperty Name="AppSupportITOwner" ColumnName="AppSupportITOwner" />
+          <ScalarProperty Name="AppSupportAdmin" ColumnName="AppSupportAdmin" />
+          <ScalarProperty Name="AppSupportBOG" ColumnName="AppSupportBOG" />
+          <ScalarProperty Name="AppSupportPMR" ColumnName="AppSupportPMR" />
+          <ScalarProperty Name="AppHours" ColumnName="AppHours" />
+          <ScalarProperty Name="AppAfterHours" ColumnName="AppAfterHours" />
+          <ScalarProperty Name="AppMaintenance" ColumnName="AppMaintenance" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppVendors">
+      <EntityTypeMapping TypeName="AppAssetModel.AppVendor">
+        <MappingFragment StoreEntitySet="AppVendor">
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VendName" ColumnName="VendName" />
+          <ScalarProperty Name="VendAddr" ColumnName="VendAddr" />
+          <ScalarProperty Name="VendURL" ColumnName="VendURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppVendorContacts">
+      <EntityTypeMapping TypeName="AppAssetModel.AppVendorContact">
+        <MappingFragment StoreEntitySet="AppVendorContact">
+          <ScalarProperty Name="VenContactID" ColumnName="VenContactID" />
+          <ScalarProperty Name="VenContactFN" ColumnName="VenContactFN" />
+          <ScalarProperty Name="VenContactLN" ColumnName="VenContactLN" />
+          <ScalarProperty Name="VenContactTitle" ColumnName="VenContactTitle" />
+          <ScalarProperty Name="VenContactEmail" ColumnName="VenContactEmail" />
+          <ScalarProperty Name="VenContactNum" ColumnName="VenContactNum" />
+          <ScalarProperty Name="VenContactStatus" ColumnName="VenContactStatus" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="VenIDFK" ColumnName="VenIDFK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppVendorSupports">
+      <EntityTypeMapping TypeName="AppAssetModel.AppVendorSupport">
+        <MappingFragment StoreEntitySet="AppVendorSupport">
+          <ScalarProperty Name="VenSupportID" ColumnName="VenSupportID" />
+          <ScalarProperty Name="VenSupportHours" ColumnName="VenSupportHours" />
+          <ScalarProperty Name="VenSupportNum" ColumnName="VenSupportNum" />
+          <ScalarProperty Name="VenSupportEmail" ColumnName="VenSupportEmail" />
+          <ScalarProperty Name="VenSupportComments" ColumnName="VenSupportComments" />
+          <ScalarProperty Name="VenIDFK" ColumnName="VenIDFK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

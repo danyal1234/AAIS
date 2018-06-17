@@ -1,0 +1,419 @@
+﻿@{
+    ViewBag.Title = "AppInfo Page";
+}
+
+<div class="btn-group pull-right m-t-15">
+    <button type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">App Settings<span class="m-l-5"><i class="fa fa-cog"></i></span></button>
+    <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#">Expire Application</a>
+        <a class="dropdown-item" href="#">Delete Application(Admin)</a>
+    </div>
+</div>
+
+<br/>
+<a href="/Home" type="button" class="btn btn-primary waves-effect waves-light">
+    <span class="btn-label">
+        <i class="fa fa-arrow-left"></i>
+    </span>Back
+</a>
+<br/>
+<br/>
+<h5>Application: @ViewBag.app.AppName</h5>
+
+
+    <ul class="nav nav-tabs m-b-10" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="main-tab" data-toggle="tab" href="#main" role="tab" aria-controls="main" aria-expanded="true">Main</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab" aria-controls="vendor" aria-expanded="false">Vendor</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contract-tab" data-toggle="tab" href="#contract" role="tab" aria-controls="contract" aria-expanded="false">Contract</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="associated-tab" data-toggle="tab" href="#associated" role="tab" aria-controls="associated" aria-expanded="false">Associated Documentation, Software and Hardware</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ADgroup-tab" data-toggle="tab" href="#ADgroup" role="tab" aria-controls="ADgroup" aria-expanded="false">AD Groups</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div role="tabpanel" class="tab-pane fade in active show" id="main" aria-labelledby="main-tab" aria-expanded="true">
+            <div align="right">
+                <i class="zmdi zmdi-edit"></i> <span>edit</span>
+            </div>
+
+            <h4>Main Information</h4>
+
+            <table class="table table-striped table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Application Name</th>
+                        <td>@ViewBag.app.AppName</td>
+                    </tr>
+                    <tr>
+                        <th>Application Description</th>
+                        <td>@ViewBag.app.AppDesc</td>
+                    </tr>
+                    <tr>
+                        <th>Application Type</th>
+                        <td>@ViewBag.app.AppType</td>
+                    </tr>
+                    <tr>
+                        <th>Deployment Type</th>
+                        <td>@ViewBag.app.DeployType</td>
+                    </tr>
+                    <tr>
+                        <th>Licence Type</th>
+                        <td>@ViewBag.app.LiscType</td>
+                    </tr>
+                    <tr>
+                        <th>No. of Licences</th>
+                        <td>@ViewBag.app.LiscNum</td>
+                    </tr>
+                    <tr>
+                        <th>Number of Users (Range)</th>
+                        <td>@ViewBag.app.UserNum</td>
+                    </tr>
+                    <tr>
+                        <th>Application Access (990?)</th>
+                        <td>@ViewBag.app.AppAccess</td>
+                    </tr>
+                    <tr>
+                        <th>Vendor Name</th>
+                        <td>@ViewBag.app.VenName</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <h4>Application Support</h4>
+               <table class="table table-striped table-bordered">
+                    <tbody>
+                        @foreach (var item in @ViewBag.appSupport)
+                        {
+                        <tr>
+                            <th>IT Owner</th>
+                            <td>@item.AppSupportITOwner</td>
+                        </tr>
+                        <tr>
+                            <th>System Administrator</th>
+                            <td>@item.AppSupportAdmin</td>
+                        </tr>
+                        <tr>
+                            <th>Business Owner Group</th>
+                            <td>@item.AppSupportBOG</td>
+                        </tr>
+                        <tr>
+                            <th>Business Owner PMR Title</th>
+                            <td>@item.AppSupportPMR</td>
+                        </tr>
+                        <tr>
+                            <th>Application Support Hours</th>
+                            <td>@item.AppHours</td>
+                        </tr>
+                        <tr>
+                            <th>After Hours Support(Y/N)</th>
+                            <td>@item.AppAfterHours</td>
+                        </tr>
+                        <tr>
+                            <th>Maintanience Window</th>
+                            <td>@item.AppMaintenance</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            <br/>
+            <h4>Version Information</h4>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Version (Click for server info)</th>
+                        <th>Instance Environment</th>
+                        <th>Install Date</th>
+                        <th>Upgrade Date</th>
+                        <th>Version Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.versions)
+                    {
+                        <tr>
+                            <td>
+                               <a href="/Info/Version/@item.AppVersion/@ViewBag.app.AppName"> @item.AppVersion </a>
+                            </td>
+                            <td>
+                                @item.AppIE
+                            </td>
+                            <td>
+                                @item.AppInstallDate
+                            </td>
+                            <td>
+                                @item.AppUpgradeDate
+                            </td>
+                                @if (@item.VersionStatus == "A")
+                                {
+                                <td><span class="label label-success">Active</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="label label-danger">Expired</span></td>
+                                }
+                        </tr>
+                    }            
+                </tbody>
+            </table>
+
+
+            <br />
+           
+
+        </div>
+
+        <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab" aria-expanded="false">
+            <div align="right">
+                <i class="zmdi zmdi-edit"></i> <span>edit</span>
+            </div>
+            <h2>Vendor Information</h2>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Vendor Name</th>
+                    <td>@ViewBag.vendor.VendName</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>@ViewBag.vendor.VendAddr</td>
+                </tr>
+                <tr>
+                    <th>Website</th>
+                    <td><a href="@ViewBag.vendor.VendURL">@ViewBag.vendor.VendURL</a></td>
+                </tr>
+            </table>
+            <br/>
+            <h5>Vendor Support</h5>
+            <table class="table table-striped table-bordered">
+                @foreach (var item in @ViewBag.appVendorSupport)
+                {
+                    <tbody>
+                        <tr>
+                            <td>Support Hours</td>
+                            <td>@item.VenSupportHours</td>
+                        </tr>
+                        <tr>
+                            <td>Support Numbers</td>
+                            <td>@item.VenSupportNum</td>
+                        </tr>
+                        <tr>
+                            <td>Support Email</td>
+                            <td><a href="mailto:(@item.VenSupportEmail)">@item.VenSupportEmail</a></td>
+                        </tr>
+                        <tr>
+                            <td>Support Comments</td>
+                            <td>@item.VenSupportComments</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+
+
+
+            <h5>Vendor Contacts</h5>
+            <table id="datatable-buttons" class="table table-hover table-bordered" cellspacing="0" width="100%">
+                <tr>
+                    <th>Contact Name</th>
+                    <th>Contact Email</th>
+                    <th>Contact Phone Number</th>
+                    <th>Contact Status</th>
+                </tr>
+                @foreach (var item in @ViewBag.appcontacts)
+                {
+                    <tr>
+                        <td>
+                            @item.VenContactTitle @item.VenContactFN @item.VenContactLN
+                        </td>
+                        <td>
+                            @item.VenContactEmail
+                        </td>
+                        <td>
+                            @item.VenContactNum
+                        </td>
+                        @if (@item.VenContactStatus == "Y")
+                        {
+                            <td><span class="label label-success">Active</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="label label-danger">Expired</span></td>
+                        }
+                    </tr>
+                }
+            </table>
+
+                <br />
+                
+</div>
+
+        <div class="tab-pane fade" id="contract" role="tabpanel" aria-labelledby="contract-tab" aria-expanded="false">
+            
+            <h4>Contract Information</h4>
+
+            <table class="table table-hover table-bordered mb-0">
+                <thead>
+                    <tr>
+                        <th>Contract Number</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach (var item in @ViewBag.appcontracts)
+                        {
+                            string array = @item.VenContractNum;
+                            string app = @ViewBag.app.AppName;
+                                <tr>
+                                    <td>@Html.ActionLink(array, "Index", "Contract", new { id = array, appname = app }, null)</td>
+                                    <td>@item.VenContractStart</td>
+                                    <td>@item.VenContractEnd</td>
+                                    <td></td>
+                                </tr>
+                        }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="associated" role="tabpanel" aria-labelledby="associated-tab" aria-expanded="false">
+            <div align="right">
+                <i class="zmdi zmdi-edit"></i> <span>edit</span>
+            </div>
+            <h4>Associated Reports</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Report</th>
+                        <th>Report Server</th>
+                        <th>Report User Account</th>
+                        <th>Production Date</th>
+                        <th>Expiry Date</th>
+                        <th>Expiry Flag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.ascReports)
+                    {
+                        <tr>
+                            <td>@item.AppAscRprtName</td>
+                            <td>@item.AppAscRprtServer</td>
+                            <td>@item.AppAscRprtUA</td>
+                            <td>@item.ExpiryDate</td>
+                            <td>@item.ProductionDate</td>
+                            @if (@item.ExpiryFlag == "y")
+                            {
+                                <td><i class="zmdi zmdi-alert-circle"></i></td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br/>
+
+            <h4>Associated Software</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Software</th>
+                        <th>Software Version</th>
+                        <th>Production Date</th>
+                        <th>Expiry Date</th>
+                        <th>Expiry Flag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.ascSoftware)
+                    {
+                        <tr>
+                            <td>@item.AppAscServerName</td>
+                            <td>@item.AppAscServerVersion</td>
+                            <td>@item.ProductionDate</td>
+                            <td>@item.ExpiryDate</td>
+                            @if (@item.ExpiryFlag == "y")
+                            {
+                                <td><i class="zmdi zmdi-alert-circle"></i></td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br/>
+
+            <h4>Associated Hardware</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Hardware</th>
+                        <th>Hardware Type</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.ascHardware)
+                    {
+                        <tr>
+                            <td>@item.HardwareName</td>
+                            <td>@item.HardwareType</td>
+                            <td>@item.Comments</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        </div>
+
+        <div class="tab-pane fade" id="ADgroup" role="tabpanel" aria-labelledby="ADgroup-tab" aria-expanded="false">
+            <h5>AD Groups</h5>
+            <table id="datatable-buttons" class="table table-bordered" cellspacing="0" width="100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Comments</th>
+                    <th>Status</th>
+                </tr>
+                @foreach (var item in @ViewBag.ADGroups)
+                {
+                    <tr>
+                        <td>
+                            @item.ADName
+                        </td>
+                        <td>
+                            @item.ADDescription
+                        </td>
+                        <td>
+                            @item.ADComments
+                        </td>
+                        @if (@item.ADStatus == "Active")
+                        {
+                            <td><span class="label label-success">Active</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="label label-danger">Expired</span></td>
+                        }
+                    </tr>
+                }
+            </table>
+        </div>
+</div>

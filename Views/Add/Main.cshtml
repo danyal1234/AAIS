@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Application</h2>
+
+<h5>Main Application Info</h5>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Application Name</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleTextarea">Application Description</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+</fieldset>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Application Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Deployment Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Liscence Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-number-input" class="col-2 col-form-label">Number of Liscences</label>
+    <div class="col-10">
+        <input class="form-control" type="number" value="0" id="example-number-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Number of Users (exact or range)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleSelect1">Application Access (990)</label>
+    <select class="form-control" id="exampleSelect1">
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+</fieldset>
+
+<h5>Support Info</h5>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">IT Owner</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">System Administrator</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Business Owner Group</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Business Owner PMR Title</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Application Support Hours</label>
+    <div class="col-10">
+        <input class="form-control" type="time" value="13:45:00" id="example-time-input"> to <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleSelect1">After Hours Support</label>
+    <select class="form-control" id="exampleSelect1">
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+</fieldset>
+
+<h5>AD Groups</h5>
+<p>AD Groups will appear in table as you add them</p>
+<table id="datatable-buttons" class="table table-bordered" cellspacing="0" width="100%">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Comments</th>
+        <th>Status</th>
+    </tr>
+</table>
+
+<br />
+<div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label">AD Group Name</label>
+    <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleTextarea">AD Group Description</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+</fieldset>
+
+<fieldset class="form-group">
+    <label for="exampleTextarea">AD Group Comments</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+</fieldset>
+
+<fieldset class="form-group">
+    <label for="exampleSelect1">AD Group Status</label>
+    <select class="form-control" id="exampleSelect1">
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+</fieldset>
+
+<div align="right">
+    <button type="submit" class="btn btn-primary">Add to AD Groups</button>
+</div>
+<br/>
+
+    <div align="right">
+        <a href="/Add/Version">
+            <button type="button" class="btn btn-success btn-rounded waves-effect waves-light">
+                Next
+                <span class="btn-label btn-label-right">
+                    <i class="fa fa-arrow-right"></i>
+                </span>
+            </button>
+        </a>
+    </div>
+    <br />

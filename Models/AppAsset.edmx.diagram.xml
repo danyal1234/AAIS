@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c06ff728d40446078e8d2d94b1c300c4" Name="Diagram1">
+        <EntityTypeShape EntityType="AppAssetModel.AppADGroup" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppAscHardware" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppAscRprt" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppAscSoftware" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppContract" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppExpired" Width="1.5" PointX="5.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.ApplicationVersion" Width="1.5" PointX="7.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppMain" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppServerDB" Width="1.5" PointX="5.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppSupportInfo" Width="1.5" PointX="5.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppVendor" Width="1.5" PointX="0.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppVendorContact" Width="1.5" PointX="3" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppAssetModel.AppVendorSupport" Width="1.5" PointX="3" PointY="41.75" IsExpanded="true" />
+        <AssociationConnector Association="AppAssetModel.FK_AppAscHardware_AppMain" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppAscHardware_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppAscRprt_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppAscSoftware_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppContract_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppExpired_AppMain" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_ApplicationVersion_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_ApplicationVersion_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppMain_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppServerDB_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppSupportInfo_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppVendorContact_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppAssetModel.FK_AppVendorSupport_ToTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Wilson Santos">
+
+    <!-- App Favicon -->
+    <link rel="shortcut icon" href="~/Content/AdminTheme/assets/images/favicon.ico">
+
+    <!-- App title -->
+    <title>Application Asset Inventory </title>
+
+    <!-- Switchery css -->
+    <link href="~/Content/AdminTheme/assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/AdminTheme/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App CSS -->
+    <link href="~/Content/AdminTheme/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- X-editable css -->
+    <link type="text/css" href="~/Content/AdminTheme/assets/plugins/x-editable/css/bootstrap-editable.css" rel="stylesheet">
+
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="/Home" class="logo">
+                        <img src="~/Content/AdminTheme/assets/images/mississauga_logo_white_horz.svg">
+
+                    </a>
+                </div>
+                <!-- End Logo container-->
+
+
+                <div class="menu-extras navbar-topbar">
+
+                    <ul class="list-inline float-right mb-0">
+
+                        <li class="list-inline-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+
+                        <li>
+
+                            <span style="color:white">
+                                @ViewBag.displayName -
+                                @ViewBag.department -
+                                @ViewBag.mail
+                            </span>
+
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- end menu-extras -->
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+
+
+    </header>
+    <!-- End Navigation Bar-->
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="container">
+        <br />
+        <br />
+        <br />
+       
+        @RenderBody()
+    </div>
+    <!-- container -->
+    <!-- Footer -->
+    <footer class="footer">
+        City of Mississauga - Application Asset Inventory - Developed by CPS/Project Portfolio & Dev CPS/CMO
+    </footer>
+    <!-- End Footer -->
+
+
+
+
+
+
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="~/Content/AdminTheme/assets/js/jquery.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/js/popper.min.js"></script>
+    <!-- Tether for Bootstrap -->
+    <script src="~/Content/AdminTheme/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/js/waves.js"></script>
+    <script src="~/Content/AdminTheme/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/switchery/switchery.min.js"></script>
+
+    <!-- Counter Up  -->
+    <script src="~/Content/AdminTheme/assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/counterup/jquery.counterup.min.js"></script>
+
+    <!-- App js -->
+    <script src="~/Content/AdminTheme/assets/js/jquery.core.js"></script>
+    <script src="~/Content/AdminTheme/assets/js/jquery.app.js"></script>
+
+
+    <script src="~/Content/AdminTheme/assets/js/custon.js"></script>
+    <script src="~/Content/AdminTheme/assets/js/jsrender.min.js"></script>
+
+    <!-- Modernizr js -->
+    <script src="~/Content/AdminTheme/assets/js/modernizr.min.js"></script>
+
+
+
+
+    @RenderSection("scripts", required: false)
+
+
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="btn-group pull-right m-t-15">
+            <button type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Admin Settings <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
+            <div class="dropdown-menu dropdown-menu-right">
+            </div>
+        </div>
+        <h4 class="page-title">Application Asset Inventory</h4>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card-box tilebox-one">
+            <i class="icon-layers float-right text-muted"></i>
+            <h6 class="text-muted text-uppercase m-b-20">Recently Modified</h6>
+            <h2 class="m-b-20" data-plugin="counterup">0</h2>
+            <span class="label label-success"> 0% </span> <span class="text-muted">Last Year</span>
+            <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#modified">View</button>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card-box tilebox-one">
+            <i class="icon-paypal float-right text-muted"></i>
+            <h6 class="text-muted text-uppercase m-b-20">Expiring Contracts</h6>
+            <h2 class="m-b-20"><span data-plugin="counterup">0</span></h2>
+            <span class="label label-danger"> 0% </span> <span class="text-muted">From previous period</span>
+            <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#contract">View</button>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card-box tilebox-one">
+            <i class="icon-chart float-right text-muted"></i>
+            <h6 class="text-muted text-uppercase m-b-20">Work Requests</h6>
+            <h2 class="m-b-20"><span data-plugin="counterup">0</span></h2>
+            <span class="label label-pink"> 0% </span> <span class="text-muted">From previous period</span>
+            <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#wrequests">View</button>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card-box tilebox-one">
+            <i class="icon-rocket float-right text-muted"></i>
+            <h6 class="text-muted text-uppercase m-b-20">Newly Added</h6>
+            <h2 class="m-b-20" data-plugin="counterup">0</h2>
+            <span class="label label-warning"> 0% </span> <span class="text-muted">Last year</span>
+            <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#newlyadded">View</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <h4 class="m-t-0 header-title"><b>All Applications</b></h4>
+            <br />
+            <br />
+
+            <!---<td><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">a a superuser</a></td> --->
+
+            <div class="btn-group dropdown-btn-group pull-right">
+                <a href="/Add"><button type="button" class="btn btn-default" >Add new</button></a>
+                <button type="button" class="btn btn-default">Display all</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Expired
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="checkbox-row">
+                        <div class="radio">
+                            <input type="radio" name="radio" id="radio1" value="option1" checked="">
+                            <label for="radio1">No</label>
+                        </div>
+                    </li>
+                    <li class="checkbox-row">
+                        <div class="radio radio-custom">
+                            <input type="radio" name="radio" id="radio2" value="option2">
+                            <label for="radio2">Yes</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <table id="datatable-buttons" class="table table-hover table-bordered" cellspacing="0" width="100%">
+
+
+                <thead>
+                    <tr>
+                        <th>Application Name</th>
+                        <th>Application Description</th>
+                        <th>Deployment Type</th>
+                        <th>Application Type</th>
+                        <th>Vendor Name</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.appTables)
+                    {
+                        <tr>
+                            <td>
+                               <a href="/Info/Index/@item.AppName"> @item.AppName </a>
+                            </td>
+                            <td>
+                                @item.AppDesc
+                            </td>
+                            <td>
+                                @item.DeployType
+                            </td>
+                            <td>
+                                @item.AppType
+                            </td>
+                            <td>
+                                @item.VenName
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modified" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Recently Modified</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contract" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Expired Contracts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="wrequests" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Work Requests</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newlyadded" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Newly Added</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            //Buttons examples
+            var table = $('#datatable-buttons').DataTable({
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'pdf']
+            });
+
+            table.buttons().container()
+                .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
+        });
+
+    </script>
+
+
+    <!-- Required datatable js -->
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/buttons.bootstrap4.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/jszip.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/pdfmake.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/vfs_fonts.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/buttons.print.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/buttons.colVis.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
+
+    <!-- XEditable Plugin -->
+    <script src="~/Content/AdminTheme/assets/plugins/moment/moment.js"></script>
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/plugins/x-editable/js/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/pages/jquery.xeditable.js"></script>
+
+}

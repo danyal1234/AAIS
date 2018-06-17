@@ -1,0 +1,128 @@
+D:\Projects\assetapp\AssetApp\AssetApp\bin\ApplicationInsights.config
+D:\Projects\assetapp\AssetApp\AssetApp\bin\AssetApp.dll.config
+D:\Projects\assetapp\AssetApp\AssetApp\bin\AssetApp.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\AssetApp.pdb
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Antlr3.Runtime.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.DependencyCollector.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.Web.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.WindowsServer.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.ApplicationInsights.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Newtonsoft.Json.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Helpers.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Mvc.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Optimization.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Razor.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.WebPages.Deployment.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.WebPages.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.WebPages.Razor.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\WebGrease.dll
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Helpers.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Mvc.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Optimization.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.Razor.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.WebPages.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\System.Web.WebPages.Razor.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Antlr3.Runtime.pdb
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Newtonsoft.Json.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.ApplicationInsights.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.DependencyCollector.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.WindowsServer.xml
+D:\Projects\assetapp\AssetApp\AssetApp\bin\Microsoft.AI.Web.xml
+D:\Projects\assetapp\AssetApp\AssetApp\obj\Debug\AssetApp.csprojResolveAssemblyReference.cache
+D:\Projects\assetapp\AssetApp\AssetApp\obj\Debug\AssetApp.csproj.CoreCompileInputs.cache
+D:\Projects\assetapp\AssetApp\AssetApp\obj\Debug\AssetApp.dll
+D:\Projects\assetapp\AssetApp\AssetApp\obj\Debug\AssetApp.pdb
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\ApplicationInsights.config
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\AssetApp.dll.config
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\AssetApp.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\AssetApp.pdb
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Antlr3.Runtime.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.Web.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.ApplicationInsights.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Newtonsoft.Json.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Helpers.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Mvc.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Optimization.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Razor.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.WebPages.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\WebGrease.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Helpers.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Mvc.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Optimization.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.Razor.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.WebPages.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Antlr3.Runtime.pdb
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Newtonsoft.Json.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.ApplicationInsights.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\bin\Microsoft.AI.Web.xml
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\obj\Debug\AssetApp.csprojResolveAssemblyReference.cache
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\obj\Debug\AssetApp.dll
+C:\Users\dmahmood\Documents\AssetApp\AssetApp\obj\Debug\AssetApp.pdb
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\ApplicationInsights.config
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\AssetApp.dll.config
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\AssetApp.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\AssetApp.pdb
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Antlr3.Runtime.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.Web.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.ApplicationInsights.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Newtonsoft.Json.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Helpers.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Mvc.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Optimization.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Razor.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.WebPages.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\WebGrease.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Helpers.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Mvc.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Optimization.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.Razor.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.WebPages.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Antlr3.Runtime.pdb
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Newtonsoft.Json.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.ApplicationInsights.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\Microsoft.AI.Web.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\obj\Debug\AssetApp.csprojResolveAssemblyReference.cache
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\obj\Debug\AssetApp.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\obj\Debug\AssetApp.pdb
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\EntityFramework.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\EntityFramework.SqlServer.dll
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\EntityFramework.xml
+C:\Users\dmahmood\Documents\Visual Studio 2015\Projects\AssetApp\AssetApp\bin\EntityFramework.SqlServer.xml
