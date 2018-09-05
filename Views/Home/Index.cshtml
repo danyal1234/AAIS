@@ -4,12 +4,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="btn-group pull-right m-t-15">
-            <button type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Admin Settings <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
-            <div class="dropdown-menu dropdown-menu-right">
-            </div>
-        </div>
-        <h4 class="page-title">Application Asset Inventory</h4>
+        <h4 class="page-title">Application Asset Inventory System</h4>
     </div>
 </div>
 
@@ -19,8 +14,8 @@
         <div class="card-box tilebox-one">
             <i class="icon-layers float-right text-muted"></i>
             <h6 class="text-muted text-uppercase m-b-20">Recently Modified</h6>
-            <h2 class="m-b-20" data-plugin="counterup">0</h2>
-            <span class="label label-success"> 0% </span> <span class="text-muted">Last Year</span>
+            <h2 class="m-b-20" data-plugin="counterup">@ViewBag.modifiedcount</h2>
+            <span class="label label-success"> @ViewBag.modifiedpercent % </span> <span class="text-muted">Since Last Week</span>
             <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#modified">View</button>
         </div>
     </div>
@@ -29,8 +24,8 @@
         <div class="card-box tilebox-one">
             <i class="icon-paypal float-right text-muted"></i>
             <h6 class="text-muted text-uppercase m-b-20">Expiring Contracts</h6>
-            <h2 class="m-b-20"><span data-plugin="counterup">0</span></h2>
-            <span class="label label-danger"> 0% </span> <span class="text-muted">From previous period</span>
+            <h2 class="m-b-20"><span data-plugin="counterup">@ViewBag.totalContracts</span></h2>
+            <span class="label label-danger"> @ViewBag.cnpercent % </span> <span class="text-muted">Of All Contracts</span>
             <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#contract">View</button>
         </div>
     </div>
@@ -38,9 +33,9 @@
     <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
         <div class="card-box tilebox-one">
             <i class="icon-chart float-right text-muted"></i>
-            <h6 class="text-muted text-uppercase m-b-20">Work Requests</h6>
-            <h2 class="m-b-20"><span data-plugin="counterup">0</span></h2>
-            <span class="label label-pink"> 0% </span> <span class="text-muted">From previous period</span>
+            <h6 class="text-muted text-uppercase m-b-20">App Work Requests</h6>
+            <h2 class="m-b-20"><span data-plugin="counterup">@ViewBag.wrcount</span></h2>
+            <span class="label label-pink"> @ViewBag.wrpercent % </span> <span class="text-muted">Of All WRequests</span>
             <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#wrequests">View</button>
         </div>
     </div>
@@ -49,8 +44,8 @@
         <div class="card-box tilebox-one">
             <i class="icon-rocket float-right text-muted"></i>
             <h6 class="text-muted text-uppercase m-b-20">Newly Added</h6>
-            <h2 class="m-b-20" data-plugin="counterup">0</h2>
-            <span class="label label-warning"> 0% </span> <span class="text-muted">Last year</span>
+            <h2 class="m-b-20" data-plugin="counterup">@ViewBag.addedcount</h2>
+            <span class="label label-warning"> @ViewBag.addedpercent % </span> <span class="text-muted">Since Last Month</span>
             <button align="right" class="btn btn-sm btn-custom waves-effect waves-light float-right" data-toggle="modal" data-target="#newlyadded">View</button>
         </div>
     </div>
@@ -59,33 +54,15 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <h4 class="m-t-0 header-title"><b>All Applications</b></h4>
+            <h4 class="m-t-0 header-title"><b>Active Applications</b></h4>
             <br />
             <br />
 
             <!---<td><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">a a superuser</a></td> --->
 
             <div class="btn-group dropdown-btn-group pull-right">
-                <a href="/Add"><button type="button" class="btn btn-default" >Add new</button></a>
-                <button type="button" class="btn btn-default">Display all</button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Expired
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li class="checkbox-row">
-                        <div class="radio">
-                            <input type="radio" name="radio" id="radio1" value="option1" checked="">
-                            <label for="radio1">No</label>
-                        </div>
-                    </li>
-                    <li class="checkbox-row">
-                        <div class="radio radio-custom">
-                            <input type="radio" name="radio" id="radio2" value="option2">
-                            <label for="radio2">Yes</label>
-                        </div>
-                    </li>
-                </ul>
+                <a href='@Url.Action("Index", "Add")'><button type="button" class="btn btn-default" >Add new</button></a>
+                <a href='@Url.Action("Index", "Expired")'><button type="button" class="btn btn-default">Expired</button></a>
             </div>
 
             <table id="datatable-buttons" class="table table-hover table-bordered" cellspacing="0" width="100%">
@@ -95,7 +72,6 @@
                     <tr>
                         <th>Application Name</th>
                         <th>Application Description</th>
-                        <th>Deployment Type</th>
                         <th>Application Type</th>
                         <th>Vendor Name</th>
 
@@ -104,23 +80,23 @@
                 <tbody>
                     @foreach (var item in @ViewBag.appTables)
                     {
-                        <tr>
-                            <td>
-                               <a href="/Info/Index/@item.AppName"> @item.AppName </a>
-                            </td>
-                            <td>
-                                @item.AppDesc
-                            </td>
-                            <td>
-                                @item.DeployType
-                            </td>
-                            <td>
-                                @item.AppType
-                            </td>
-                            <td>
-                                @item.VenName
-                            </td>
-                        </tr>
+                        if (item.Expired == "N")
+                        {
+                            <tr>
+                                <td>
+                                    <p><a href="~/Info/Index/@item.AppName/"> @item.AppName </a></p>
+                                </td>
+                                <td>
+                                    <p>@item.AppDesc</p>
+                                </td>
+                                <td>
+                                    @item.AppType
+                                </td>
+                                <td>
+                                    @item.AppVendor.VendName
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
@@ -138,7 +114,25 @@
                 </button>
             </div>
             <div class="modal-body">
-                
+                <table class="table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Application Name</th>
+                            <th>Modified Date</th>
+                            <th>Modified By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in @ViewBag.newlymodified)
+                        {
+                            <tr>
+                                <td><a href="~/Info/Index/@item.AppName/">@item.AppName</a></td>
+                                <td>@item.ModifiedDate.ToShortDateString()</td>
+                                <td>@item.ModifiedBy</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -148,7 +142,7 @@
 </div>
 
 <div class="modal fade" id="contract" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Expired Contracts</h5>
@@ -157,7 +151,32 @@
                 </button>
             </div>
             <div class="modal-body">
+                <table class="table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Contract Number</th>
+                            <th>Application Name</th>
+                            <th>Expired</th>
+                        </tr>
+                        @foreach (var item in @ViewBag.expiringContracts)
+                        {
+                            <tr>
+                                <td><a href="~//Contract/Index/@item.VenContractNum/@item.AppMain.AppName/">@item.VenContractNum</a></td>
+                                <td><a href="~/Info/Index/@item.AppMain.AppName">@item.AppMain.AppName</a></td>
+                                @if (item.VenContractEnd > DateTime.Now)
+                                {
+                                    <td style="color:yellow;">@item.VenContractEnd</td>
+                                }
+                                else
+                                {
+                                    <td style="color:red;">@item.VenContractEnd</td>
+                                }
 
+                            </tr>
+                        }
+                    </thead>
+                    
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -167,7 +186,7 @@
 </div>
 
 <div class="modal fade" id="wrequests" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Work Requests</h5>
@@ -176,7 +195,31 @@
                 </button>
             </div>
             <div class="modal-body">
-
+                <div align="right">
+                    <a target="_blank" href="http://teamsites.mississauga.ca/sites/103">View All Requests</a>
+                </div>
+                <br/>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Work Request</th>
+                            <th>Application Name</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in @ViewBag.workRequest)
+                        {
+                            string wrname = @item[3].InnerText.Trim();
+                            wrname = wrname.Remove(wrname.Length - 3);
+                            <tr>
+                                    <td>@wrname</td>
+                                    <td>@Html.Raw(item[21].InnerHtml)</td>
+                                    <td>@Html.Raw(item[18].InnerHtml)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -195,7 +238,25 @@
                 </button>
             </div>
             <div class="modal-body">
-
+                <table class="table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Application Name</th>
+                            <th>Date Added</th>
+                            <th>Added By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.newlyadded)
+                        {
+                            <tr>
+                                <td><a href="~/Info/Index/@item.AppName/">@item.AppName</a></td>
+                                <td>@item.CreatedDate.ToShortDateString()</td>
+                                <td>@item.CreatedBy</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>

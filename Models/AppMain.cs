@@ -17,13 +17,10 @@ namespace AssetApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AppMain()
         {
-            this.AppADGroups = new HashSet<AppADGroup>();
             this.AppAscHardwares = new HashSet<AppAscHardware>();
-            this.AppAscRprts = new HashSet<AppAscRprt>();
             this.AppAscSoftwares = new HashSet<AppAscSoftware>();
-            this.AppExpireds = new HashSet<AppExpired>();
+            this.AppContracts = new HashSet<AppContract>();
             this.ApplicationVersions = new HashSet<ApplicationVersion>();
-            this.AppServerDBs = new HashSet<AppServerDB>();
             this.AppSupportInfoes = new HashSet<AppSupportInfo>();
         }
     
@@ -36,24 +33,22 @@ namespace AssetApp.Models
         public Nullable<int> LiscNum { get; set; }
         public string UserNum { get; set; }
         public string AppAccess { get; set; }
-        public string VenName { get; set; }
         public int VenIDFK { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string ModifiedBy { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public string Expired { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppADGroup> AppADGroups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AppAscHardware> AppAscHardwares { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppAscRprt> AppAscRprts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AppAscSoftware> AppAscSoftwares { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppExpired> AppExpireds { get; set; }
+        public virtual ICollection<AppContract> AppContracts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ApplicationVersion> ApplicationVersions { get; set; }
         public virtual AppVendor AppVendor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppServerDB> AppServerDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AppSupportInfo> AppSupportInfoes { get; set; }
     }

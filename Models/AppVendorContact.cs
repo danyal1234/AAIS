@@ -24,7 +24,7 @@ namespace AssetApp.Models
         public string CreatedBy { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         public int VenIDFK { get; set; }
     
         public virtual AppVendor AppVendor { get; set; }

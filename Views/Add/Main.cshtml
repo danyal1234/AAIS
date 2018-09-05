@@ -7,57 +7,72 @@
 <h2>New Application</h2>
 
 <h5>Main Application Info</h5>
+@using (Html.BeginForm("saveMain", "Add", FormMethod.Post))
+{
+    <input type="hidden" id="vendorSelect" name="vendorSelect" value="@ViewBag.vendorSelect">
+    <input type="hidden" id="street1" name="street1" value="@ViewBag.street1">
+    <input type="hidden" id="city" name="city" value="@ViewBag.city">
+    <input type="hidden" id="province" name="province" value="@ViewBag.province">
+    <input type="hidden" id="zip" name="zip" value="@ViewBag.zip">
+    <input type="hidden" id="vendURL" name="vendURL" value="@ViewBag.vendURL">
+    <input type="hidden" id="startTime" name="startTime" value="@ViewBag.startTime">
+    <input type="hidden" id="vendTel" name="vendTel" value="@ViewBag.vendTel">
+    <input type="hidden" id="vendEmail" name="vendEmail" value="@ViewBag.vendEmail">
+    <input type="hidden" id="supportComments" name="supportComments" value="@ViewBag.supportComments">
+    <input type="hidden" id="vendorName" name="vendorName" value="@ViewBag.vendorName" />
 
 <div class="form-group row">
-    <label for="example-text-input" class="col-2 col-form-label">Application Name</label>
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Application Name</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="appName" name="appName" maxlength="50">
     </div>
 </div>
 
+<b>Do not copy paste in the application name field above, type it in manually.</b><p>It may add hidden characters that which will result in the application not being saved.</p>
+
 <fieldset class="form-group">
     <label for="exampleTextarea">Application Description</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    <textarea class="form-control" id="appDescription" name="appDescription" rows="3"></textarea>
 </fieldset>
 
 <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Application Type</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="appType" name="appType">
     </div>
 </div>
 
 <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Deployment Type</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="deployType" name="deployType">
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="example-text-input" class="col-2 col-form-label">Liscence Type</label>
+    <label for="example-text-input" class="col-2 col-form-label">Licence Type</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="liscenceType" name="liscenceType">
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="example-number-input" class="col-2 col-form-label">Number of Liscences</label>
+    <label for="example-number-input" class="col-2 col-form-label">Number of Licences (number only)</label>
     <div class="col-10">
-        <input class="form-control" type="number" value="0" id="example-number-input">
+        <input class="form-control" type="number" value="0" id="numbLiscence" name="numbLiscence">
     </div>
 </div>
 
 <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Number of Users (exact or range)</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="numbUsers" name="numbUsers">
     </div>
 </div>
 
 <fieldset class="form-group">
     <label for="exampleSelect1">Application Access (990)</label>
-    <select class="form-control" id="exampleSelect1">
+    <select class="form-control" id="appAccess" name="appAccess">
         <option>Yes</option>
         <option>No</option>
     </select>
@@ -68,96 +83,50 @@
 <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">IT Owner</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="itOwner" name="itOwner">
     </div>
 </div>
 
 <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">System Administrator</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="systemAdmin" name="systemAdmin">
     </div>
 </div>
 
 <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Business Owner Group</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="BOG" name="BOG">
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="example-text-input" class="col-2 col-form-label">Business Owner PMR Title</label>
+    <label for="example-text-input" class="col-2 col-form-label">Business Owner PMR</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="BOPMR" name="BOPMR">
     </div>
 </div>
 
 <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Application Support Hours</label>
     <div class="col-10">
-        <input class="form-control" type="time" value="13:45:00" id="example-time-input"> to <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+        <input class="form-control" type="text" id="hourstart" name="hourstart">
     </div>
 </div>
 
-<fieldset class="form-group">
-    <label for="exampleSelect1">After Hours Support</label>
-    <select class="form-control" id="exampleSelect1">
-        <option>Yes</option>
-        <option>No</option>
-    </select>
-</fieldset>
-
-<h5>AD Groups</h5>
-<p>AD Groups will appear in table as you add them</p>
-<table id="datatable-buttons" class="table table-bordered" cellspacing="0" width="100%">
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Comments</th>
-        <th>Status</th>
-    </tr>
-</table>
-
-<br />
 <div class="form-group row">
-    <label for="example-email-input" class="col-2 col-form-label">AD Group Name</label>
+    <label for="example-text-input" class="col-2 col-form-label">Maintenance Window</label>
     <div class="col-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="maintWindow" name="maintWindow">
     </div>
 </div>
 
-<fieldset class="form-group">
-    <label for="exampleTextarea">AD Group Description</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-</fieldset>
-
-<fieldset class="form-group">
-    <label for="exampleTextarea">AD Group Comments</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-</fieldset>
-
-<fieldset class="form-group">
-    <label for="exampleSelect1">AD Group Status</label>
-    <select class="form-control" id="exampleSelect1">
-        <option>Yes</option>
-        <option>No</option>
-    </select>
-</fieldset>
-
-<div align="right">
-    <button type="submit" class="btn btn-primary">Add to AD Groups</button>
-</div>
 <br/>
+<div align="right">
+    <button type="submit" class="btn btn-primary">Save and Continue</button>
+</div>
+<br />
 
-    <div align="right">
-        <a href="/Add/Version">
-            <button type="button" class="btn btn-success btn-rounded waves-effect waves-light">
-                Next
-                <span class="btn-label btn-label-right">
-                    <i class="fa fa-arrow-right"></i>
-                </span>
-            </button>
-        </a>
-    </div>
-    <br />
+}
+

@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "VendorEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5>Editing Vendor: @ViewBag.name</h5>
+@using (Html.BeginForm("saveVendor", "Info", FormMethod.Post))
+{
+<mark color="red">Changing this vendor will change it for all associated applications and contracts aswell.</mark>
+<br/>
+    <input type="hidden" id="appname" name="appname" value="@ViewBag.appname"/>
+    <input type="hidden" id="vendorid" name="vendorid" value="@ViewBag.venid" />
+<br />
+<br/>
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Vendor Name (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.name" type="text" id="vendName" name="vendName" maxlength="50">
+    </div>
+</div>
+
+
+<div class="form-group-row">
+    <fieldset class="form-group">
+        <label for="exampleTextarea">Vendor Address</label>
+        <textarea class="form-control" id="vendAddress" name="vendAddress" rows="3" maxlength="80">@ViewBag.address</textarea>
+    </fieldset>
+</div>
+
+<div class="form-group row">
+    <label for="example-url-input" class="col-2 col-form-label">Vendor URL</label>
+    <div class="col-10">
+        <input class="form-control" type="URL" value="@ViewBag.url" id="vendURL" name="vendURL">
+    </div>
+</div>
+
+<h5>Vendor Support</h5>
+if (@ViewBag.supportcount == 0)
+    {
+        <div class="form-group row">
+            <label for="example-time-input" class="col-2 col-form-label">Support Hours</label>
+            <input class="form-control" id="supportHRS" name="supportHRS" maxlength="15">
+        </div>
+        <br />
+        <div class="form-group row">
+            <label for="example-tel-input" class="col-2 col-form-label">Vendor Phone Number</label>
+            <div class="col-10">
+                <input class="form-control" type="tel" id="vendPhone" name="vendPhone" maxlength="25">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Vendor Email</label>
+            <div class="col-10">
+                <input class="form-control" type="email" id="vendEmail" name="vendEmail" maxlength="50">
+            </div>
+        </div>
+
+        <fieldset class="form-group">
+            <label for="exampleTextarea">Support Comments</label>
+            <textarea class="form-control" id="vendSupport" name="vendSupport" rows="3"></textarea>
+        </fieldset>
+    }
+    else
+    {
+        foreach (var item in @ViewBag.support)
+        {
+            <input type="hidden" value="@item.VenSupportID" id="supportID" name="supportID" />
+            <div class="form-group row">
+                <label for="example-time-input" class="col-2 col-form-label">Support Hours</label>
+                <input class="form-control" value="@item.VenSupportHours" id="supportHRS" name="supportHRS" maxlength="15">
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="example-tel-input" class="col-2 col-form-label">Vendor Phone Number</label>
+                <div class="col-10">
+                    <input class="form-control" type="tel" value="@item.VenSupportNum" id="vendPhone" name="vendPhone" maxlength="25">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="example-email-input" class="col-2 col-form-label">Vendor Email</label>
+                <div class="col-10">
+                    <input class="form-control" type="email" value="@item.VenSupportEmail" id="vendEmail" name="vendEmail" maxlength="50">
+                </div>
+            </div>
+
+            <fieldset class="form-group">
+                <label for="exampleTextarea">Support Comments</label>
+                <textarea class="form-control" id="vendSupport" name="vendSupport" rows="3">@item.VenSupportComments</textarea>
+            </fieldset>
+        }
+
+    }
+    <br />
+    <div align="right">
+        <input type="submit" id="btnSearch" class="btn" value="Save Changes" />
+    </div>
+        <br />
+}
+   

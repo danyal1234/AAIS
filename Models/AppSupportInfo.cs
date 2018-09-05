@@ -21,12 +21,11 @@ namespace AssetApp.Models
         public string AppSupportBOG { get; set; }
         public string AppSupportPMR { get; set; }
         public string AppHours { get; set; }
-        public string AppAfterHours { get; set; }
         public string AppMaintenance { get; set; }
         public string CreatedBy { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
     
         public virtual AppMain AppMain { get; set; }
     }

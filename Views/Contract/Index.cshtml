@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.ActionLink("Go Back", "Index", "Info", new { id = ViewBag.appname }, null)
+<a href="~/Info/Index/@ViewBag.appname/">Go Back</a>
 
 <h2>Contract Details</h2>
 

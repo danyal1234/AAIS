@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="~/Home" type="button" class="btn btn-primary waves-effect waves-light">
+    <span class="btn-label">
+        <i class="fa fa-arrow-left"></i>
+    </span>Back
+</a>
+<br/>
+<br/>
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <h4 class="m-t-0 header-title"><b>All Expired Applications</b></h4>
+            <br />
+            <br />
+            <table id="datatable-buttons" class="table table-hover table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Application Name</th>
+                        <th>Application Type</th>
+                        <th>Vendor Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.appTables)
+                    {
+                        if (item.Expired == "Y")
+                        {
+                            <tr>
+                                <td>
+                                    <p><a href="~/Info/Index/@item.AppName"> @item.AppName </a></p>
+                                    <p>@item.AppDesc</p>
+                                </td>
+
+                                <td>
+                                    @item.AppType
+                                </td>
+                                <td>
+                                    @item.AppVendor.VendName
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

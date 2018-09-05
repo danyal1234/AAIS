@@ -4,7 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.ActionLink("Go Back", "Index", "Info", new { id = ViewBag.appname }, null)
+<a href="~/Info/Index/@ViewBag.appname/">Go Back</a>
+
+@using (Html.BeginForm("deleteVersion", "Info", FormMethod.Post))
+{
+    <div align="right">
+        <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light">Delete</button>
+    </div>
+    <p  style="text-align:right">Warning: Pressing the delete button will also delete all associated servers.</p>
+    <input type="hidden" id="appname" name="appname" value="@ViewBag.appname" />
+    <input type="hidden" id="id" name="id" value="@ViewBag.versionid" />
+}
 
 <h2>Version</h2>
 
@@ -12,7 +22,7 @@
     <tbody>
         <tr>
             <th>Version</th>
-            <td>@ViewBag.AppVersion</td>
+            <td>@ViewBag.version</td>
         </tr>
         <tr>
             <th>Instance Environment</th>
@@ -30,35 +40,35 @@
 </table>
 
 <h5>Server Database</h5>
+
+<p>Click server name to edit.</p>
+
+<div align="right">
+    <a href="~/Edit/editServer/add/@ViewBag.versionid/"><i class="zmdi zmdi-edit"></i> <span>Add New</span></a>
+</div>
+
 <table class="table table-bordered">
     <tbody>
         <tr>
             <th>Server Name</th>
-            <td>@ViewBag.ServerName</td>
-        </tr>
-        <tr>
             <th>Server Type</th>
-            <td>@ViewBag.ServerType</td>
-        </tr>
-        <tr>
             <th>Operating System</th>
-            <td>@ViewBag.ServerOS</td>
-        </tr>
-        <tr>
             <th>Server URL</th>
-            <td>@ViewBag.ServerURL</td>
-        </tr>
-        <tr>
             <th>Database Name</th>
-            <td>@ViewBag.DBName</td>
-        </tr>
-        <tr>
             <th>Database Type</th>
-            <td>@ViewBag.DBType</td>
+            <th>Instance Environement</th>
         </tr>
-        <tr>     
-          <th>Instance Environement</th>
-            <td>@ViewBag.ServerIE</td>
-        </tr>
+        @foreach (var item in ViewBag.servers)
+        {
+            <tr>
+                <td><a href="~/Edit/editServer/@item.AppServerID/@ViewBag.versionid/">@item.AppServerName</a></td>
+                <td>@item.AppServerType</td>
+                <td>@item.AppServerOS</td>
+                <td>@item.AppServerURL</td>
+                <td>@item.AppDBName</td>
+                <td>@item.AppDBType</td>
+                <td>@item.AppServerIE</td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "VersionEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("deleteVersion", "Info", FormMethod.Post))
+{
+<div align="right">
+    <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light">Delete</button>
+</div>
+<input type="hidden" id="appname" name="appname" value="@ViewBag.appname" />
+<input type="hidden" id="id" name="id" value="@ViewBag.versionID" />
+}
+<h4>Editing Version: @ViewBag.version</h4>
+@using (Html.BeginForm("saveVersion", "Info", FormMethod.Post))
+{
+<input type="hidden" id="appName" name="appName" value="@ViewBag.appname" />
+<input type = "hidden" id = "versionid" name = "versionid" value = "@ViewBag.versionID" />
+<br/>
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Version (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.version" id="versionName" name="versionName" maxlength="15">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Instance Environment (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.AppIE" id="versionIE" name="versionIE" maxlength="25">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Install Date</label>
+    <div class="col-10">
+        <input class="form-control" placeholder="yyyy/mm/dd hh/mm (time optional)" value="@ViewBag.installDate" id="installDate" name="installDate">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Upgrade Date</label>
+    <div class="col-10">
+        <input class="form-control" placeholder="yyyy/mm/dd hh/mm (time optional)" value="@ViewBag.upgradeDate" id="upgradeDate" name="upgradeDate">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleSelect1" data-toggle="tooltip" data-placement="top">Status</label>
+    <select class="form-control" id="versionStatus" name="versionStatus">
+        @if (ViewBag.VersionStatus == "A" || ViewBag.versionID == null)
+        {
+            <option>Active</option>
+            <option>Expired</option>
+        }
+        else
+        {
+            <option>Expired</option>
+            <option>Active</option>
+        }
+    </select>
+</fieldset>
+<br />
+<div align="right">
+    <input type="submit" id="btnSearch" class="btn" value="Save Changes" />
+</div>
+<br />
+}

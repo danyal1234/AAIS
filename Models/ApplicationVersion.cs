@@ -14,6 +14,12 @@ namespace AssetApp.Models
     
     public partial class ApplicationVersion
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ApplicationVersion()
+        {
+            this.AppServerDBs = new HashSet<AppServerDB>();
+        }
+    
         public int VersionID { get; set; }
         public string AppVersion { get; set; }
         public string AppIE { get; set; }
@@ -22,12 +28,12 @@ namespace AssetApp.Models
         public string CreatedBy { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         public int AppIDFK { get; set; }
-        public int AppServerIDFK { get; set; }
         public string VersionStatus { get; set; }
     
         public virtual AppMain AppMain { get; set; }
-        public virtual AppServerDB AppServerDB { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AppServerDB> AppServerDBs { get; set; }
     }
 }

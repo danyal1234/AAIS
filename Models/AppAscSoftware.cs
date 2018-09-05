@@ -16,15 +16,14 @@ namespace AssetApp.Models
     {
         public int AppAscSoftID { get; set; }
         public int AppIDFK { get; set; }
-        public string AppAscServerName { get; set; }
-        public string AppAscServerVersion { get; set; }
+        public string AppAscSoftwareName { get; set; }
+        public string AppAscSoftwareVersion { get; set; }
         public Nullable<System.DateTime> ProductionDate { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
-        public string ExpiryFlag { get; set; }
         public string CreatedBy { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
     
         public virtual AppMain AppMain { get; set; }
     }

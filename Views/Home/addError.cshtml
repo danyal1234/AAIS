@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "addError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.venderror == "yes" && ViewBag.apperror == "yes")
+{
+    <h4 style="color:red">ERROR: An app with the same name and vendor already exists. Please go back to the Home page and edit the app itself to change the information.</h4>
+    <p>NOTE: If you just added an app. DO NOT USE THE BACK BUTTON TO EDIT. Go to the home page and find the app to change the information.</p>
+}
+
+@if (ViewBag.venderror == "yes" && ViewBag.apperror == "no")
+{
+        <h4 style="color:red">ERROR: An app with the same name already exists. Please go back to the Home page and edit the app itself to change the vendor.</h4>
+}
+
+@if (ViewBag.venderror == "no" && ViewBag.apperror == "yes")
+{
+    <h4 style="color:red">ERROR: A vendor with the same name already exists. Please go back and edit the Vendor name, or select a vendor from the existing Vendor screen.</h4>
+}

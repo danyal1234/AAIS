@@ -17,7 +17,6 @@ namespace AssetApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AppVendor()
         {
-            this.AppContracts = new HashSet<AppContract>();
             this.AppMains = new HashSet<AppMain>();
             this.AppVendorContacts = new HashSet<AppVendorContact>();
             this.AppVendorSupports = new HashSet<AppVendorSupport>();
@@ -28,8 +27,6 @@ namespace AssetApp.Models
         public string VendAddr { get; set; }
         public string VendURL { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppContract> AppContracts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AppMain> AppMains { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

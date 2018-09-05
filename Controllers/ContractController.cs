@@ -45,7 +45,7 @@ namespace AssetApp.Controllers
 
             foreach (var item in contracts)
             {
-                if (item.VenContractNum == id  && app.VenName == item.AppVendor.VendName )
+                if (item.VenContractNum == id  && app.AppName == item.AppMain.AppName)
                 {
                     contract = item;
                     ViewBag.VenContractNum = id;

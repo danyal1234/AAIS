@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>Input sizes are restricted, please fit information into fields.</p>
+
+<h5>Main Application Info</h5>
+@using (Html.BeginForm("saveMain", "Info", FormMethod.Post))
+{
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Application Name (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.app.AppName" id="appName" name="appName" maxlength="50">
+        <input type="hidden" value="@ViewBag.app.AppID" id="ogApp" name="ogApp" />
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleTextarea">Application Description</label>
+    <textarea class="form-control" id="appDesc" name="appDesc" rows="4">@ViewBag.app.AppDesc</textarea>
+</fieldset>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Application Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.app.AppType" id="appType" name="appType" maxlength="50">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Deployment Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.app.DeployType" id="deployType" name="deployType" maxlength="60">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Licence Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.app.LiscType" id="liscenceType" name="liscenceType" maxlength="75">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-number-input" class="col-2 col-form-label">Number of Licences (number only)</label>
+    <div class="col-10">
+        <input class="form-control" type="number" value="@ViewBag.app.LiscNum" id="numLiscences" name="numLiscences">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Number of Users (exact or range)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.app.UserNum" id="numUsers" name="numUsers" maxlength="20">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleSelect1">Application Access (990)</label>
+    <select class="form-control" id="appAccess" name="appAccess">
+        @if (@ViewBag.app.AppAccess == "Y")
+        {
+            <option>Yes</option>
+            <option>No</option>
+        }
+        else
+        {
+            <option>No</option>
+            <option>Yes</option>
+        }
+    </select>
+</fieldset>
+
+<h5>Support Info</h5>
+foreach (var item in @ViewBag.appSupport)
+{
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">IT Owner</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@item.AppSupportITOwner" id="itOwner" name="itOwner" maxlength="60">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">System Administrator</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@item.AppSupportAdmin" id="systemAdmin" name="systemAdmin" maxlength="60">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Business Owner Group</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@item.AppSupportBOG" id="BOG" name="BOG" maxlength="60">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Business Owner PMR</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@item.AppSupportPMR" id="PMR" name="PMR" maxlength="40">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Application Support Hours</label>
+    <div class="col-10">
+        <input class="form-control"value ="@item.AppHours" id="supportHours" name="supportHours" maxlength="20">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Maintenance Window</label>
+    <div class="col-10">
+        <input class="form-control" value="@item.AppMaintenance" id="maintWindow" name="maintWindow" maxlength="80">
+    </div>
+</div>
+}
+
+<button type="submit" class="btn btn-primary">Save Changes</button>
+<br/>
+<br/>
+}

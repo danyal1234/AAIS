@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Softwares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("deleteSoftware", "Info", FormMethod.Post))
+{
+<div align="right">
+    <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light">Delete</button>
+</div>
+<input type="hidden" id="appname" name="appname" value="@ViewBag.appname" />
+<input type="hidden" id="id" name="id" value="@ViewBag.id" />
+}
+<h2>Softwares</h2>
+@using (Html.BeginForm("saveSoftware", "Info", FormMethod.Post))
+{
+<input type="hidden" id="appname" name="appname" value="@ViewBag.appname" />
+<input type="hidden" id="id" name="id" value="@ViewBag.id" />
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Software Name (MSI) (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.name" id="softwareName" name="softwareName" maxlength="60">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Software Version</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.version" id="softwareVersion" name="softwareVersion" maxlength="10">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Production Date</label>
+    <div class="col-10">
+        <input class="form-control" type="datetime" placeholder="yyyy/mm/dd hh/mm (24hr time optional)" value="@ViewBag.proddate" id="prodDate" name="prodDate">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Expiry Date</label>
+    <div class="col-10">
+        <input class="form-control" type="text" placeholder="yyyy/mm/dd hh/mm (24hr time optional)" value="@ViewBag.expiredate" id="expiryDate" name="expiryDate">
+    </div>
+</div>
+
+<div align="right">
+    <button type="submit" class="btn btn-primary">Add to Softwares</button>
+</div>
+}

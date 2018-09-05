@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Hardwares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("deleteHardware", "Info", FormMethod.Post))
+{
+<div align="right">
+    <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light">Delete</button>
+</div>
+<input type="hidden" id="appname" name="appname" value="@ViewBag.appname" />
+<input type="hidden" id="id" name="id" value="@ViewBag.id" />
+}
+<h2>Hardwares</h2>
+@using (Html.BeginForm("saveHardware", "Info", FormMethod.Post))
+{
+<input type="hidden" id="appname" name="appname" value="@ViewBag.appname" />
+<input type="hidden" id="id" name="id" value="@ViewBag.id" />
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Hardware Name (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.name" id="hardwareName" name="hardwareName" maxlength="50">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Hardware Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.type" id="hardwareType" name="hardwareType" maxlength="20">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleTextarea">Comments</label>
+    <textarea class="form-control" id="comments" name="comments" rows="3">@ViewBag.comments</textarea>
+</fieldset>
+
+<div align="right">
+    <button type="submit" class="btn btn-primary">Add to Hardware</button>
+</div>
+}

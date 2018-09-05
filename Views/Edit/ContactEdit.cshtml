@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "ContactEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("deleteContact", "Info", FormMethod.Post))
+{
+<div align="right">
+    <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light">Delete</button>
+</div>
+<input type="hidden" value="@ViewBag.contactID" id="id" name="id" />
+<input type="hidden" value="@ViewBag.appname" id="appname" name="appname" />
+}
+<h2>ContactEdit</h2>
+@using (Html.BeginForm("saveContact", "Info", FormMethod.Post))
+{
+<input type="hidden" value="@ViewBag.contactID" id="id" name="id" />
+<input type="hidden" value="@ViewBag.venid" id="venid" name="venid" />
+<input type="hidden" value="@ViewBag.appname" id="appName" name="appName" />
+
+<fieldset class="form-group">
+    <label for="example-email-input" class="col-2 col-form-label">Title:</label>
+    <div class="col-5">
+        <input type="text" class="form-control" placeholder="Mr.Mrs.MissMs.Dr.Prof.Rev.Other" id="contitle" name="contitle" value="@ViewBag.contitle" maxlength="5">
+    </div>
+</fieldset>
+
+<div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label" style="color:red">First Name (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.fname" type="text" id="fName" name="fName" maxlength="20">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label" style="color:red">Last Name (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.lname" type="text" id="lName" name="lName" maxlength="20">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label">Email</label>
+    <div class="col-10">
+        <input class="form-control" type="email" value="@ViewBag.email" id="contactEmail" name="contactEmail" maxlength="40">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
+    <div class="col-10">
+        <input class="form-control" type="tel" value="@ViewBag.num" id="contactTele" name="contactTele" maxlength="15">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleSelect1">Status</label>
+    <select class="form-control" id="status" name="status">
+        @if (ViewBag.status == "Y" || ViewBag.contactID == null)
+        {
+            <option>Active</option>
+            <option>Expired</option>
+        }
+        else
+        {
+            <option>Expired</option>
+            <option>Active</option>
+        }
+    </select>
+</fieldset>
+<br/>
+<div align="right">
+    <input type="submit" id="btnSearch" class="btn" value="Save Changes" />
+</div>
+<br/>
+}

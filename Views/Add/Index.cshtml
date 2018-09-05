@@ -5,9 +5,10 @@
 }
 
 <h2>New Application</h2>
-<mark color="red">If you want to add an application please do so completely. Do not close the application or go to a different page without verifying the new information first and going through all the steps and saving the application, as this may result in garbage data being stored in the AAIS database. </mark>
+<mark color="red">If you want to add an application please do so completely. Do not close the application or go to a different page without verifying the new information first and going through bothe steps and saving the application, as this may result in garbage data being stored in the AAIS database. </mark>
 <br/>
 <br/>
+
 
 <h5>1) Vendor Information</h5>
 
@@ -22,23 +23,30 @@
 
 <div class="tab-content" id="myTabContent">
     <div role="tabpanel" class="tab-pane fade in active show" id="existingvendor" aria-labelledby="existingvendor-tab" aria-expanded="true">
+        @using (Html.BeginForm("Main", "Add", FormMethod.Post))
+        {
         <fieldset class="form-group">
             <label for="exampleSelect2">Select from current vendors below:</label>
-            <select multiple="" class="form-control" id="exampleSelect2">
+            <select class="form-control" id="vendorSelect" name="vendorSelect">
                 @foreach (var item in @ViewBag.appVendors)
                 {
                     <option>@item.VendName</option>
                 }
             </select>
         </fieldset>
+        <div align="right">
+            <button type="submit" class="btn btn-primary">Continue</button>
+        </div>
+        }
     </div>
     <div class="tab-pane fade" id="newvendor" role="tabpanel" aria-labelledby="newvendor-tab" aria-expanded="false">
-
+        @using (Html.BeginForm("Main", "Add", FormMethod.Post))
+        {
         <h5>Vendor Main Info</h5>
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Vendor Name</label>
+            <label for="example-text-input" class="col-2 col-form-label" style="color:red">Vendor Name (mandatory)</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="example-text-input">
+                <input class="form-control" type="text" id="vendorName" name="vendorName" maxlength="50">
             </div>
         </div>
 
@@ -47,93 +55,35 @@
 
             <div class="form-group">
                 <!-- Street 1 -->
-                <label for="street1_id" class="control-label">Street Address 1</label>
-                <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street address, P.O. box, company name, c/o">
-            </div>
-
-            <div class="form-group">
-                <!-- Street 2 -->
-                <label for="street2_id" class="control-label">Street Address 2</label>
-                <input type="text" class="form-control" id="street2_id" name="street2" placeholder="Apartment, suite, unit, building, floor, etc.">
+                <label for="street1_id" class="control-label">Street Address</label>
+                <input type="text" class="form-control" id="street1" name="street1" placeholder="Street address, P.O. box, company name, c/o" maxlength="30">
             </div>
 
             <div class="form-group">
                 <!-- City-->
                 <label for="city_id" class="control-label">City</label>
-                <input type="text" class="form-control" id="city_id" name="city" placeholder="Smallville">
+                <input type="text" class="form-control" id="city" name="city" placeholder="City" maxlength="15">
             </div>
 
             <div class="form-group">
-                <!-- State Button -->
-                <label for="state_id" class="control-label">State</label>
-                <select class="form-control" id="state_id">
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="DC">District Of Columbia</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                </select>
+                <!-- City-->
+                <label for="province_id" class="control-label">Province/State</label>
+                <input type="text" class="form-control" id="province" name="province" maxlength="10">
             </div>
 
             <div class="form-group">
                 <!-- Zip Code-->
                 <label for="zip_id" class="control-label">Postal/Zip Code</label>
-                <input type="text" class="form-control" id="zip_id" name="zip" placeholder="#####">
+                <input type="text" class="form-control" id="zip" name="zip" placeholder="#####" maxlength="6">
             </div>
 
 
-        </div>	
+        </div>
 
         <div class="form-group row">
             <label for="example-url-input" class="col-2 col-form-label">Vendor URL</label>
             <div class="col-10">
-                <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
+                <input class="form-control" type="url" placeholder="https://example.com" id="vendURL" name="vendURL">
             </div>
         </div>
 
@@ -141,159 +91,35 @@
 
         <div class="form-group row">
             <label for="example-time-input" class="col-2 col-form-label">Support Hours</label>
-            <input class="form-control" type="time" value="13:45:00" id="example-time-input"> to <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+            <input class="form-control" type="text" placeholder="8AM - 4PM" id="startTime" name="startTime" maxlength="30">
         </div>
-        <br/>
+        <br />
         <div class="form-group row">
             <label for="example-tel-input" class="col-2 col-form-label">Vendor Phone Number</label>
             <div class="col-10">
-                <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
+                <input class="form-control" type="tel" placeholder="1-(555)-555-5555" id="vendTel" name="vendTel" maxlength="25">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="example-email-input" class="col-2 col-form-label">Vendor Email</label>
             <div class="col-10">
-                <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+                <input class="form-control" type="email" placeholder="bootstrap@example.com" id="vendEmail" name="vendEmail" maxlength="50">
             </div>
         </div>
 
         <fieldset class="form-group">
             <label for="exampleTextarea">Support Comments</label>
-            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-        </fieldset>
-
-        <h5>Vendor Contract</h5>
-        <p>Contracts will appear below as you add them.</p>
-        <br/>
-        <table class="table table-bordered mb-0">
-            <thead>
-                <tr>
-                    <th>Contract Number</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-        </table>
-
-        <br/>
-        <div class="form-group row">
-            <label for="example-email-input" class="col-2 col-form-label">Contract Number</label>
-            <div class="col-10">
-                <input class="form-control" type="text" id="example-text-input">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="example-email-input" class="col-2 col-form-label">Contract Administrator</label>
-            <div class="col-10">
-                <input class="form-control" type="text" id="example-text-input">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="example-date-input" class="col-2 col-form-label">Start Date</label>
-            <div class="col-10">
-                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="example-date-input" class="col-2 col-form-label">End Date</label>
-            <div class="col-10">
-                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="example-date-input" class="col-2 col-form-label">Renewal Date</label>
-            <div class="col-10">
-                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-            </div>
-        </div>
-
-        <fieldset class="form-group">
-            <label for="exampleTextarea">Description</label>
-            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-             </fieldset>
-        <br/>
-
-        <div align="right">
-            <button type="submit" class="btn btn-primary">Add to Contracts</button>
-        </div>
-
-        <h5>Vendor Contacts</h5>
-        <p>Contacts will appear below as you add them.</p>
-        <table class="table table-bordered" cellspacing="0" width="100%">
-            <tr>
-                <th>Contact Name</th>
-                <th>Contact Email</th>
-                <th>Contact Phone Number</th>
-                <th>Contact Status</th>
-            </tr>
-        </table>
-        <br/>
-
-        <div class="form-group row">
-            <label for="example-email-input" class="col-2 col-form-label">First Name</label>
-            <div class="col-10">
-                <input class="form-control" type="text" id="example-text-input">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="example-email-input" class="col-2 col-form-label">Last Name</label>
-            <div class="col-10">
-                <input class="form-control" type="text" id="example-text-input">
-            </div>
-        </div>
-
-        <fieldset class="form-group">
-            <label for="exampleSelect1">Title:</label>
-            <select class="form-control" id="exampleSelect1">
-                <option>Mr.</option>
-                <option>Mrs.</option>
-            </select>
-        </fieldset>
-
-        <div class="form-group row">
-            <label for="example-email-input" class="col-2 col-form-label">Email</label>
-            <div class="col-10">
-                <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-            <div class="col-10">
-                <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-            </div>
-        </div>
-
-        <fieldset class="form-group">
-            <label for="exampleSelect1">Status</label>
-            <select class="form-control" id="exampleSelect1">
-                <option>Active</option>
-                <option>Expired</option>
-            </select>
+            <textarea class="form-control" id="supportComments" name="supportComments" rows="3"></textarea>
         </fieldset>
 
         <div align="right">
-            <button type="submit" class="btn btn-primary">Add to Contacts</button>
+            <button type="submit" class="btn btn-primary">Save and Continue</button>
         </div>
-</div>
-</div>
+        }
+    </div>
+
+        </div>
+       
 
 <br/>
-<div align="right">
-    <a href="/Add/Main">
-        <button type="button" class="btn btn-success btn-rounded waves-effect waves-light">
-            Save and continue
-            <span class="btn-label btn-label-right">
-                <i class="fa fa-arrow-right"></i>
-            </span>
-        </button>
-    </a>
-</div>
-<br />

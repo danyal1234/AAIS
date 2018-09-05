@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "ContractEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("deleteContract", "Info", FormMethod.Post))
+{
+    <div align="right">
+        <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light">Delete</button>
+    </div>
+    <input type="hidden" id="appname" name="appname" value="@ViewBag.appname" />
+    <input type="hidden" id="contractid" name="contractid" value="@ViewBag.contractid" />
+}
+<h4>Editing Contract: @ViewBag.name</h4>
+@using (Html.BeginForm("saveContract", "Info", FormMethod.Post))
+{
+<input type="hidden" id="appname" name="appname" value="@ViewBag.appname"/>
+<input type="hidden" id="contractid" name="contractid" value="@ViewBag.contractid" />
+<div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label" style="color:red">Contract Number (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.name" id="contractNum" name="contractNum">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label">Contract Administrator</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.admin" id="contractAdmin" name="contractAdmin">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Start Date</label>
+    <div class="col-10">
+        <input class="form-control" placeholder="yyyy/mm/dd hh/mm (time optional)" value="@ViewBag.startdate" id="startDate" name="startDate">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">End Date</label>
+    <div class="col-10">
+        <input class="form-control" placeholder="yyyy/mm/dd hh/mm (time optional)" value="@ViewBag.enddate" id="endDate" name="endDate">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Renewal Date</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.renewaldate" placeholder="yyyy/mm/dd hh/mm (time optional)" id="renewalDate" name="renewalDate">
+    </div>
+</div>
+
+<fieldset class="form-group">
+    <label for="exampleTextarea">Comments</label>
+    <textarea class="form-control" id="description" name="description" rows="3">@ViewBag.description</textarea>
+</fieldset>
+<br />
+<div align="right">
+    <input type="submit" id="btnSearch" class="btn" value="Save Changes" />
+</div>
+<br/>
+}

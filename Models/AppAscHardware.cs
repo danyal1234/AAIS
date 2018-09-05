@@ -18,12 +18,11 @@ namespace AssetApp.Models
         public string HardwareName { get; set; }
         public string HardwareType { get; set; }
         public string Comments { get; set; }
-        public string DocLocation { get; set; }
         public int AppIDFK { get; set; }
         public string CreatedBy { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
     
         public virtual AppMain AppMain { get; set; }
     }

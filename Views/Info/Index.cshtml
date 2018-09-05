@@ -2,16 +2,24 @@
     ViewBag.Title = "AppInfo Page";
 }
 
+
 <div class="btn-group pull-right m-t-15">
     <button type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">App Settings<span class="m-l-5"><i class="fa fa-cog"></i></span></button>
     <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Expire Application</a>
-        <a class="dropdown-item" href="#">Delete Application(Admin)</a>
+        @if (@ViewBag.app.Expired == "N")
+        {
+            <a class="dropdown-item" data-toggle="modal" data-target="#expiremodal" href="">Expire Application</a>
+        }
+        else
+        {
+            <a class="dropdown-item" data-toggle="modal" data-target="#unexpiremodal" href="#">Unexpire Application</a>
+        }
+        <a class="dropdown-item" data-toggle="modal" data-target="#deletemodal" href="#">Delete Application</a>
     </div>
 </div>
 
 <br/>
-<a href="/Home" type="button" class="btn btn-primary waves-effect waves-light">
+<a href="~/Home" type="button" class="btn btn-primary waves-effect waves-light">
     <span class="btn-label">
         <i class="fa fa-arrow-left"></i>
     </span>Back
@@ -32,17 +40,17 @@
             <a class="nav-link" id="contract-tab" data-toggle="tab" href="#contract" role="tab" aria-controls="contract" aria-expanded="false">Contract</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="associated-tab" data-toggle="tab" href="#associated" role="tab" aria-controls="associated" aria-expanded="false">Associated Documentation, Software and Hardware</a>
+            <a class="nav-link" id="associated-tab" data-toggle="tab" href="#associated" role="tab" aria-controls="associated" aria-expanded="false">Associated Software and Hardware</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" id="ADgroup-tab" data-toggle="tab" href="#ADgroup" role="tab" aria-controls="ADgroup" aria-expanded="false">AD Groups</a>
-        </li>
+        </li>-->
     </ul>
 
     <div class="tab-content" id="myTabContent">
         <div role="tabpanel" class="tab-pane fade in active show" id="main" aria-labelledby="main-tab" aria-expanded="true">
             <div align="right">
-                <i class="zmdi zmdi-edit"></i> <span>edit</span>
+               <a href="~/Edit/Index/@ViewBag.app.AppName/"> <i class="zmdi zmdi-edit"></i> <span>edit</span> </a>
             </div>
 
             <h4>Main Information</h4>
@@ -79,17 +87,20 @@
                     </tr>
                     <tr>
                         <th>Application Access (990?)</th>
-                        <td>@ViewBag.app.AppAccess</td>
-                    </tr>
-                    <tr>
-                        <th>Vendor Name</th>
-                        <td>@ViewBag.app.VenName</td>
+                        @if (@ViewBag.app.AppAccess == "Y")
+                        {
+                            <td>Yes</td>
+                        }
+                        else
+                        {
+                            <td>No</td>
+                        }
                     </tr>
                 </tbody>
             </table>
 
             <br/>
-            <h4>Application Support</h4>
+            <h5>Application Support</h5>
                <table class="table table-striped table-bordered">
                     <tbody>
                         @foreach (var item in @ViewBag.appSupport)
@@ -107,7 +118,7 @@
                             <td>@item.AppSupportBOG</td>
                         </tr>
                         <tr>
-                            <th>Business Owner PMR Title</th>
+                            <th>Business Owner PMR</th>
                             <td>@item.AppSupportPMR</td>
                         </tr>
                         <tr>
@@ -115,17 +126,16 @@
                             <td>@item.AppHours</td>
                         </tr>
                         <tr>
-                            <th>After Hours Support(Y/N)</th>
-                            <td>@item.AppAfterHours</td>
-                        </tr>
-                        <tr>
-                            <th>Maintanience Window</th>
+                            <th>Maintenance Window</th>
                             <td>@item.AppMaintenance</td>
                         </tr>
                         }
                     </tbody>
                 </table>
             <br/>
+            <div align="right">
+                <a href="" data-toggle="modal" data-target="#version"> <i class="zmdi zmdi-edit"></i> <span>edit</span> </a>
+            </div>
             <h4>Version Information</h4>
 
             <table class="table table-bordered">
@@ -143,7 +153,7 @@
                     {
                         <tr>
                             <td>
-                               <a href="/Info/Version/@item.AppVersion/@ViewBag.app.AppName"> @item.AppVersion </a>
+                               <a href="~/Info/Version/@item.AppVersion@item.AppIE/@ViewBag.app.AppName/"> @item.AppVersion </a>
                             </td>
                             <td>
                                 @item.AppIE
@@ -166,16 +176,12 @@
                     }            
                 </tbody>
             </table>
-
-
             <br />
-           
-
         </div>
 
         <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab" aria-expanded="false">
             <div align="right">
-                <i class="zmdi zmdi-edit"></i> <span>edit</span>
+                <a href="~/Edit/VendorEdit/@ViewBag.vendor.VendName/@ViewBag.app.AppName/"><i class="zmdi zmdi-edit"></i> <span>edit</span></a>
             </div>
             <h2>Vendor Information</h2>
             <table class="table table-striped table-bordered">
@@ -219,7 +225,9 @@
             </table>
 
 
-
+            <div align="right">
+                <a href="" data-toggle="modal" data-target="#contacts"><i class="zmdi zmdi-edit"></i> <span>edit</span></a>
+            </div>
             <h5>Vendor Contacts</h5>
             <table id="datatable-buttons" class="table table-hover table-bordered" cellspacing="0" width="100%">
                 <tr>
@@ -251,13 +259,14 @@
                     </tr>
                 }
             </table>
-
-                <br />
-                
-</div>
+            <br /> 
+        </div>
 
         <div class="tab-pane fade" id="contract" role="tabpanel" aria-labelledby="contract-tab" aria-expanded="false">
-            
+            <div align="right">
+                <a href="" data-toggle="modal" data-target="#modified"> <i class="zmdi zmdi-edit"></i> <span>edit</span> </a>
+            </div>
+
             <h4>Contract Information</h4>
 
             <table class="table table-hover table-bordered mb-0">
@@ -266,7 +275,6 @@
                         <th>Contract Number</th>
                         <th>Start Date</th>
                         <th>End Date</th>
-                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -278,7 +286,6 @@
                                     <td>@Html.ActionLink(array, "Index", "Contract", new { id = array, appname = app }, null)</td>
                                     <td>@item.VenContractStart</td>
                                     <td>@item.VenContractEnd</td>
-                                    <td></td>
                                 </tr>
                         }
                 </tbody>
@@ -287,78 +294,42 @@
 
         <div class="tab-pane fade" id="associated" role="tabpanel" aria-labelledby="associated-tab" aria-expanded="false">
             <div align="right">
-                <i class="zmdi zmdi-edit"></i> <span>edit</span>
+                <a href="" data-toggle="modal" data-target="#software"><i class="zmdi zmdi-edit"></i> <span>edit</span></a>
             </div>
-            <h4>Associated Reports</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Report</th>
-                        <th>Report Server</th>
-                        <th>Report User Account</th>
-                        <th>Production Date</th>
-                        <th>Expiry Date</th>
-                        <th>Expiry Flag</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in @ViewBag.ascReports)
-                    {
-                        <tr>
-                            <td>@item.AppAscRprtName</td>
-                            <td>@item.AppAscRprtServer</td>
-                            <td>@item.AppAscRprtUA</td>
-                            <td>@item.ExpiryDate</td>
-                            <td>@item.ProductionDate</td>
-                            @if (@item.ExpiryFlag == "y")
-                            {
-                                <td><i class="zmdi zmdi-alert-circle"></i></td>
-                            }
-                            else
-                            {
-                                <td></td>
-                            }
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            <br/>
-
             <h4>Associated Software</h4>
             <table class="table">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Software</th>
+                        <th>Software (MSI)</th>
                         <th>Software Version</th>
                         <th>Production Date</th>
                         <th>Expiry Date</th>
-                        <th>Expiry Flag</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in @ViewBag.ascSoftware)
-                    {
-                        <tr>
-                            <td>@item.AppAscServerName</td>
-                            <td>@item.AppAscServerVersion</td>
-                            <td>@item.ProductionDate</td>
-                            <td>@item.ExpiryDate</td>
-                            @if (@item.ExpiryFlag == "y")
-                            {
-                                <td><i class="zmdi zmdi-alert-circle"></i></td>
-                            }
-                            else
-                            {
-                                <td></td>
-                            }
-                        </tr>
+                    @{ 
+                        int j = 1;
+                        foreach (var item in @ViewBag.ascSoftware)
+                        {
+                            <tr>
+                                <td>@j</td>
+                                <td>@item.AppAscSoftwareName</td>
+                                <td>@item.AppAscSoftwareVersion</td>
+                                <td>@item.ProductionDate</td>
+                                <td>@item.ExpiryDate</td>
+                            </tr>
+                            j++;
+                        }
                     }
                 </tbody>
             </table>
+            <br />
+            
             <br/>
-
+            <div align="right">
+                <a href="" data-toggle="modal" data-target="#hardware"><i class="zmdi zmdi-edit"></i> <span>edit</span></a>
+            </div>
             <h4>Associated Hardware</h4>
             <table class="table">
                 <thead>
@@ -370,50 +341,262 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in @ViewBag.ascHardware)
-                    {
-                        <tr>
-                            <td>@item.HardwareName</td>
-                            <td>@item.HardwareType</td>
-                            <td>@item.Comments</td>
-                        </tr>
+                    @{ 
+                        int i = 1;
+
+                        foreach (var item in @ViewBag.ascHardware)
+                        {
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@item.HardwareName</td>
+                                <td>@item.HardwareType</td>
+                                <td>@item.Comments</td>
+                            </tr>
+                            i++;
+                        }
                     }
                 </tbody>
             </table>
             
         </div>
 
-        <div class="tab-pane fade" id="ADgroup" role="tabpanel" aria-labelledby="ADgroup-tab" aria-expanded="false">
-            <h5>AD Groups</h5>
-            <table id="datatable-buttons" class="table table-bordered" cellspacing="0" width="100%">
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Comments</th>
-                    <th>Status</th>
-                </tr>
-                @foreach (var item in @ViewBag.ADGroups)
-                {
-                    <tr>
-                        <td>
-                            @item.ADName
-                        </td>
-                        <td>
-                            @item.ADDescription
-                        </td>
-                        <td>
-                            @item.ADComments
-                        </td>
-                        @if (@item.ADStatus == "Active")
+    
+</div>
+
+
+
+<div class="modal fade" id="modified" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("ContractEdit", "Edit", FormMethod.Post))
+            {
+            <div class="modal-body">
+                <fieldset class="form-group">
+                    <label for="exampleSelect1">Choose Contract to Edit</label>
+                    <select class="form-control" id="contractSelect" name="contractSelect">
+                        <option>Add New</option>
+                        @foreach (var item in @ViewBag.appcontracts)
                         {
-                            <td><span class="label label-success">Active</span></td>
+                            <option>@item.VenContractNum</option>
                         }
-                        else
-                        {
-                            <td><span class="label label-danger">Expired</span></td>
-                        }
-                    </tr>
-                }
-            </table>
+                    </select>
+                    <input type="hidden" name="convendor" id="convendor" value ="@ViewBag.app.AppName" />
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" id="btnSearch" class="btn" value="Edit" />
+            </div>
+            }
         </div>
+    </div>
+</div>
+
+<div class="modal fade" id="version" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("VersionEdit", "Edit", FormMethod.Post))
+            {
+            <div class="modal-body">
+                <fieldset class="form-group">
+                    <label for="exampleSelect1">Choose Version to Edit</label>
+                    <select class="form-control" id="versionSelect" name="versionSelect">
+                        <option>Add New</option>
+                        @foreach (var item in @ViewBag.versions)
+                        {
+                            <option>@item.AppVersion @item.AppIE</option>
+                        }
+                    </select>
+                </fieldset>
+            </div>
+            <input type="hidden" id="versionApp" name="versionApp" value="@ViewBag.app.AppName" />
+            <div class="modal-footer">
+                <input type="submit" id="btnSearch" class="btn" value="Edit" />
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contacts" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("ContactEdit", "Edit", FormMethod.Post))
+            {
+            <div class="modal-body">
+                <fieldset class="form-group">
+                    <label for="exampleSelect1">Choose Contact to Edit</label>
+                    <select class="form-control" id="contactSelect" name="contactSelect">
+                        <option>Add New</option>
+                        @foreach (var item in @ViewBag.appcontacts)
+                        {
+                            <option>@item.VenContactFN @item.VenContactLN</option>
+                        }
+                    </select>
+                </fieldset>
+            </div>
+            <input type="hidden" id="appname" name="appname" value="@ViewBag.app.AppName" />
+            <input type="hidden" id="venid" name="venid" value="@ViewBag.vendor.VenID" />
+            <div class="modal-footer">
+            <input type="submit" id="btnSearch" class="btn" value="Edit" />
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="software" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Softwares", "Edit", FormMethod.Post))
+            {
+            <div class="modal-body">
+                <fieldset class="form-group">
+                    <label for="exampleSelect1">Choose Software to Edit</label>
+                    <select class="form-control" id="softwareSelect" name="softwareSelect">
+                        <option>Add New</option>
+                        @foreach (var item in @ViewBag.ascSoftware)
+                        {
+                            <option>@item.AppAscSoftwareName</option>
+                        }
+                    </select>
+                </fieldset>
+            </div>
+            <input type="hidden" id="softwareApp" name="softwareApp" value="@ViewBag.app.AppName" />
+            <div class="modal-footer">
+                <input type="submit" id="btnSearch" class="btn" value="Edit" />
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="hardware" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Hardwares", "Edit", FormMethod.Post))
+            {
+            <div class="modal-body">
+                <fieldset class="form-group">
+                    <label for="exampleSelect1">Choose Hardware to Edit</label>
+                    <select class="form-control" id="hardwareName" name="hardwareName">
+                        <option>Add New</option>
+                        @foreach (var item in @ViewBag.ascHardware)
+                        {
+                            <option>@item.HardwareName</option>
+                        }
+                    </select>
+                </fieldset>
+            </div>
+            <input type="hidden" id="hardwareApp" name="hardwareApp" value="@ViewBag.app.AppName" />
+            <div class="modal-footer">
+                <input type="submit" id="btnSearch" class="btn" value="Edit" />
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="expiremodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Expire", "Home", FormMethod.Post))
+            {
+                <div class="modal-body"> 
+                    <p>Are you sure you want to expire this application?</p>
+                </div>
+                <input type="hidden" id="appid" name="appid" value="@ViewBag.app.AppID" />
+                <div class="modal-footer">
+                    <input type="submit" id="btnSearch" class="btn" value="Yes" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="unexpiremodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Unexpire", "Home", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    <p>Are you sure you want to unexpire this application?</p>
+                </div>
+                <input type="hidden" id="appid" name="appid" value="@ViewBag.app.AppID" />
+                <div class="modal-footer">
+                    <input type="submit" id="btnSearch" class="btn" value="Yes" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Delete", "Home", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    <h5>Are you sure you want to delete this application (@ViewBag.app.AppName)?</h5>
+                    @if (ViewBag.app.AppVendor.AppMains.Count == 1)
+                    {
+                        <b>The Vendor (@ViewBag.vendor.VendName) will also be deleted, as it has no remaining applications.</b>
+                        <input type="hidden" id="vendordelete" name="vendordelete" value="Y" />
+                    }
+                    else
+                    {
+                        <p>The Vendor (@ViewBag.vendor.VendName) will not be deleted, as there are other applications with the same number.</p>
+                        <input type="hidden" id="vendordelete" name="vendordelete" value="N" />
+                    }
+                    <br/>
+                    <br/>
+                    <h5>This process can not be undone.</h5>
+                </div>
+                <input type="hidden" id="appid" name="appid" value="@ViewBag.app.AppID" />
+                <input type="hidden" id="venid" name="venid" value="@ViewBag.vendor.VenID" />
+                <div class="modal-footer">
+                    <input type="submit" id="btnSearch" class="btn" value="Delete" />
+                </div>
+            }
+        </div>
+    </div>
 </div>

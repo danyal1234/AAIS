@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "editServer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("deleteServer", "Info", FormMethod.Post))
+{
+<div align="right">
+    <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light">Delete</button>
+</div>
+<input type="hidden" id="versionid" name="versionid" value="@ViewBag.versionid" />
+<input type="hidden" id="id" name="id" value="@ViewBag.id" />
+}
+<h5>Editing Server: @ViewBag.AppServerName</h5>
+@using (Html.BeginForm("saveServer", "Info", FormMethod.Post))
+{
+<input type="hidden" id="versionid" name="versionid" value="@ViewBag.versionid" />
+<input type="hidden" id="id" name="id" value="@ViewBag.id" />
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label" style="color:red">Server Name (mandatory)</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.AppServerName" id="serverName" name="serverName" maxlength="60">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Server Type</label>
+    <div class="col-10">
+        <input class="form-control" type="text" value="@ViewBag.AppServerType" id="serverType" name="serverType" maxlength="15">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Server OS</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.AppServerOS" id="serverOS" name="serverOS" maxlength="25">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Server URL</label>
+    <div class="col-10">
+        <input type="url" class="form-control" value="@ViewBag.AppServerURL" id="serverURL" name="serverURL">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Database Name</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.AppDBName" id="dbname" name="dbname" maxlength="50">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Database Type</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.AppDBType" id="dbtype" name="dbtype" maxlength="15">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Server Instance Environment</label>
+    <div class="col-10">
+        <input class="form-control" value="@ViewBag.AppServerIE" id="serverie" name="serverie" maxlength="10">
+    </div>
+</div>
+
+<div align="right">
+    <button type="submit" class="btn btn-primary">Add to Version</button>
+</div>
+<br/>
+}

@@ -25,12 +25,9 @@ namespace AssetApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AppADGroup> AppADGroups { get; set; }
         public virtual DbSet<AppAscHardware> AppAscHardwares { get; set; }
-        public virtual DbSet<AppAscRprt> AppAscRprts { get; set; }
         public virtual DbSet<AppAscSoftware> AppAscSoftwares { get; set; }
         public virtual DbSet<AppContract> AppContracts { get; set; }
-        public virtual DbSet<AppExpired> AppExpireds { get; set; }
         public virtual DbSet<ApplicationVersion> ApplicationVersions { get; set; }
         public virtual DbSet<AppMain> AppMains { get; set; }
         public virtual DbSet<AppServerDB> AppServerDBs { get; set; }
@@ -38,5 +35,6 @@ namespace AssetApp.Models
         public virtual DbSet<AppVendor> AppVendors { get; set; }
         public virtual DbSet<AppVendorContact> AppVendorContacts { get; set; }
         public virtual DbSet<AppVendorSupport> AppVendorSupports { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

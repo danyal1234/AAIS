@@ -5,21 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="AppAssetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AppADGroups">
-          <Key>
-            <PropertyRef Name="AppADID" />
-          </Key>
-          <Property Name="AppADID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ADName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ADDescription" Type="nvarchar" MaxLength="50" />
-          <Property Name="ADStatus" Type="varchar" MaxLength="20" />
-          <Property Name="ADComments" Type="nvarchar(max)" />
-          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-          <Property Name="AppIDFK" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="AppAscHardware">
           <Key>
             <PropertyRef Name="AppADID" />
@@ -28,30 +13,11 @@
           <Property Name="HardwareName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="HardwareType" Type="varchar" MaxLength="20" />
           <Property Name="Comments" Type="varchar(max)" />
-          <Property Name="DocLocation" Type="varchar(max)" />
           <Property Name="AppIDFK" Type="int" Nullable="false" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AppAscRprt">
-          <Key>
-            <PropertyRef Name="AppServerID" />
-          </Key>
-          <Property Name="AppServerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AppIDFK" Type="int" Nullable="false" />
-          <Property Name="AppAscRprtName" Type="nvarchar" MaxLength="60" />
-          <Property Name="AppAscRprtServer" Type="nvarchar" MaxLength="60" />
-          <Property Name="AppAscRprtPATH" Type="nvarchar" MaxLength="60" />
-          <Property Name="AppAscRprtUA" Type="nvarchar" MaxLength="40" />
-          <Property Name="ProductionDate" Type="datetime" />
-          <Property Name="ExpiryDate" Type="datetime" />
-          <Property Name="ExpiryFlag" Type="varchar" MaxLength="1" />
-          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="AppAscSoftware">
           <Key>
@@ -59,15 +25,14 @@
           </Key>
           <Property Name="AppAscSoftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AppIDFK" Type="int" Nullable="false" />
-          <Property Name="AppAscServerName" Type="nvarchar" MaxLength="60" />
-          <Property Name="AppAscServerVersion" Type="nvarchar" MaxLength="10" />
+          <Property Name="AppAscSoftwareName" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="AppAscSoftwareVersion" Type="nvarchar" MaxLength="10" />
           <Property Name="ProductionDate" Type="date" />
           <Property Name="ExpiryDate" Type="datetime" />
-          <Property Name="ExpiryFlag" Type="varchar" MaxLength="1" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="AppContract">
           <Key>
@@ -82,16 +47,8 @@
           <Property Name="VenContractComment" Type="nvarchar(max)" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-          <Property Name="VenIDFK" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AppExpired">
-          <Key>
-            <PropertyRef Name="ExpireID" />
-          </Key>
-          <Property Name="ExpireID" Type="int" Nullable="false" />
-          <Property Name="Expired" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="AppIDFK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ApplicationVersion">
@@ -99,51 +56,50 @@
             <PropertyRef Name="VersionID" />
           </Key>
           <Property Name="VersionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AppVersion" Type="varchar" MaxLength="15" />
-          <Property Name="AppIE" Type="varchar" MaxLength="6" />
+          <Property Name="AppVersion" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="AppIE" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="AppInstallDate" Type="datetime" />
           <Property Name="AppUpgradeDate" Type="datetime" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="AppIDFK" Type="int" Nullable="false" />
-          <Property Name="AppServerIDFK" Type="int" Nullable="false" />
           <Property Name="VersionStatus" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="AppMain">
           <Key>
             <PropertyRef Name="AppID" />
           </Key>
-          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="AppID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AppName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="AppDesc" Type="nvarchar(max)" />
           <Property Name="AppType" Type="varchar" MaxLength="50" />
-          <Property Name="DeployType" Type="varchar" MaxLength="10" />
-          <Property Name="LiscType" Type="nvarchar" MaxLength="15" />
+          <Property Name="DeployType" Type="varchar" MaxLength="60" />
+          <Property Name="LiscType" Type="varchar" MaxLength="75" />
           <Property Name="LiscNum" Type="int" />
           <Property Name="UserNum" Type="varchar" MaxLength="20" />
           <Property Name="AppAccess" Type="varchar" MaxLength="1" />
-          <Property Name="VenName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="VenIDFK" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Expired" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="AppServerDB">
           <Key>
             <PropertyRef Name="AppServerID" />
           </Key>
           <Property Name="AppServerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AppIDFK" Type="int" Nullable="false" />
-          <Property Name="AppServerName" Type="nvarchar" MaxLength="60" />
+          <Property Name="VersionIDFK" Type="int" Nullable="false" />
+          <Property Name="AppServerName" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="AppServerType" Type="varchar" MaxLength="15" />
-          <Property Name="AppServerOS" Type="varchar" MaxLength="15" />
-          <Property Name="AppServerURL" Type="nvarchar" MaxLength="60" />
+          <Property Name="AppServerOS" Type="varchar" MaxLength="25" />
+          <Property Name="AppServerURL" Type="nvarchar(max)" />
           <Property Name="AppDBType" Type="varchar" MaxLength="15" />
-          <Property Name="AppDBName" Type="nvarchar" MaxLength="60" />
+          <Property Name="AppDBName" Type="nvarchar" MaxLength="50" />
           <Property Name="AppServerIE" Type="varchar" MaxLength="10" />
-          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="AppSupportInfo">
           <Key>
@@ -156,12 +112,11 @@
           <Property Name="AppSupportBOG" Type="nvarchar" MaxLength="60" />
           <Property Name="AppSupportPMR" Type="nvarchar" MaxLength="40" />
           <Property Name="AppHours" Type="varchar" MaxLength="20" />
-          <Property Name="AppAfterHours" Type="varchar" MaxLength="1" />
-          <Property Name="AppMaintenance" Type="varchar" MaxLength="30" />
+          <Property Name="AppMaintenance" Type="nvarchar" MaxLength="80" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="AppVendor">
           <Key>
@@ -177,16 +132,16 @@
             <PropertyRef Name="VenContactID" />
           </Key>
           <Property Name="VenContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="VenContactFN" Type="varchar" MaxLength="20" />
-          <Property Name="VenContactLN" Type="varchar" MaxLength="20" />
+          <Property Name="VenContactFN" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="VenContactLN" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="VenContactTitle" Type="varchar" MaxLength="5" />
           <Property Name="VenContactEmail" Type="varchar" MaxLength="40" />
           <Property Name="VenContactNum" Type="varchar" MaxLength="15" />
           <Property Name="VenContactStatus" Type="varchar" MaxLength="1" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="VenIDFK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="AppVendorSupport">
@@ -194,24 +149,22 @@
             <PropertyRef Name="VenSupportID" />
           </Key>
           <Property Name="VenSupportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="VenSupportHours" Type="varchar" MaxLength="15" />
-          <Property Name="VenSupportNum" Type="varchar" MaxLength="15" />
-          <Property Name="VenSupportEmail" Type="varchar" MaxLength="40" />
+          <Property Name="VenSupportHours" Type="varchar" MaxLength="30" />
+          <Property Name="VenSupportNum" Type="varchar" MaxLength="25" />
+          <Property Name="VenSupportEmail" Type="varchar" MaxLength="50" />
           <Property Name="VenSupportComments" Type="nvarchar(max)" />
           <Property Name="VenIDFK" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_AppAscHardware_AppMain">
-          <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
-          <End Role="AppADGroups" Type="Self.AppADGroups" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppMain">
-              <PropertyRef Name="AppID" />
-            </Principal>
-            <Dependent Role="AppADGroups">
-              <PropertyRef Name="AppIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <Association Name="FK_AppAscHardware_ToTable">
           <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
           <End Role="AppAscHardware" Type="Self.AppAscHardware" Multiplicity="*" />
@@ -220,18 +173,6 @@
               <PropertyRef Name="AppID" />
             </Principal>
             <Dependent Role="AppAscHardware">
-              <PropertyRef Name="AppIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AppAscRprt_ToTable">
-          <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
-          <End Role="AppAscRprt" Type="Self.AppAscRprt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppMain">
-              <PropertyRef Name="AppID" />
-            </Principal>
-            <Dependent Role="AppAscRprt">
               <PropertyRef Name="AppIDFK" />
             </Dependent>
           </ReferentialConstraint>
@@ -248,26 +189,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_AppContract_ToTable">
-          <End Role="AppVendor" Type="Self.AppVendor" Multiplicity="1" />
-          <End Role="AppContract" Type="Self.AppContract" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppVendor">
-              <PropertyRef Name="VenID" />
-            </Principal>
-            <Dependent Role="AppContract">
-              <PropertyRef Name="VenIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AppExpired_AppMain">
+        <Association Name="FK_AppContract_ToTable_1">
           <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
-          <End Role="AppExpired" Type="Self.AppExpired" Multiplicity="*" />
+          <End Role="AppContract" Type="Self.AppContract" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AppMain">
               <PropertyRef Name="AppID" />
             </Principal>
-            <Dependent Role="AppExpired">
+            <Dependent Role="AppContract">
               <PropertyRef Name="AppIDFK" />
             </Dependent>
           </ReferentialConstraint>
@@ -284,18 +213,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ApplicationVersion_ToTable_2">
-          <End Role="AppServerDB" Type="Self.AppServerDB" Multiplicity="1" />
-          <End Role="ApplicationVersion" Type="Self.ApplicationVersion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppServerDB">
-              <PropertyRef Name="AppServerID" />
-            </Principal>
-            <Dependent Role="ApplicationVersion">
-              <PropertyRef Name="AppServerIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_AppMain_ToTable">
           <End Role="AppVendor" Type="Self.AppVendor" Multiplicity="1" />
           <End Role="AppMain" Type="Self.AppMain" Multiplicity="*" />
@@ -308,15 +225,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_AppServerDB_ToTable">
-          <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
+        <Association Name="FK_AppServerDB_ApplicationVersion">
+          <End Role="ApplicationVersion" Type="Self.ApplicationVersion" Multiplicity="1" />
           <End Role="AppServerDB" Type="Self.AppServerDB" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AppMain">
-              <PropertyRef Name="AppID" />
+            <Principal Role="ApplicationVersion">
+              <PropertyRef Name="VersionID" />
             </Principal>
             <Dependent Role="AppServerDB">
-              <PropertyRef Name="AppIDFK" />
+              <PropertyRef Name="VersionIDFK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -357,12 +274,9 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AppAssetModelStoreContainer">
-          <EntitySet Name="AppADGroups" EntityType="Self.AppADGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppAscHardware" EntityType="Self.AppAscHardware" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AppAscRprt" EntityType="Self.AppAscRprt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppAscSoftware" EntityType="Self.AppAscSoftware" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppContract" EntityType="Self.AppContract" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AppExpired" EntityType="Self.AppExpired" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplicationVersion" EntityType="Self.ApplicationVersion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppMain" EntityType="Self.AppMain" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppServerDB" EntityType="Self.AppServerDB" Schema="dbo" store:Type="Tables" />
@@ -370,44 +284,29 @@
           <EntitySet Name="AppVendor" EntityType="Self.AppVendor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppVendorContact" EntityType="Self.AppVendorContact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppVendorSupport" EntityType="Self.AppVendorSupport" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AppAscHardware_AppMain" Association="Self.FK_AppAscHardware_AppMain">
-            <End Role="AppMain" EntitySet="AppMain" />
-            <End Role="AppADGroups" EntitySet="AppADGroups" />
-          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AppAscHardware_ToTable" Association="Self.FK_AppAscHardware_ToTable">
             <End Role="AppMain" EntitySet="AppMain" />
             <End Role="AppAscHardware" EntitySet="AppAscHardware" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AppAscRprt_ToTable" Association="Self.FK_AppAscRprt_ToTable">
-            <End Role="AppMain" EntitySet="AppMain" />
-            <End Role="AppAscRprt" EntitySet="AppAscRprt" />
           </AssociationSet>
           <AssociationSet Name="FK_AppAscSoftware_ToTable" Association="Self.FK_AppAscSoftware_ToTable">
             <End Role="AppMain" EntitySet="AppMain" />
             <End Role="AppAscSoftware" EntitySet="AppAscSoftware" />
           </AssociationSet>
-          <AssociationSet Name="FK_AppContract_ToTable" Association="Self.FK_AppContract_ToTable">
-            <End Role="AppVendor" EntitySet="AppVendor" />
-            <End Role="AppContract" EntitySet="AppContract" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AppExpired_AppMain" Association="Self.FK_AppExpired_AppMain">
+          <AssociationSet Name="FK_AppContract_ToTable_1" Association="Self.FK_AppContract_ToTable_1">
             <End Role="AppMain" EntitySet="AppMain" />
-            <End Role="AppExpired" EntitySet="AppExpired" />
+            <End Role="AppContract" EntitySet="AppContract" />
           </AssociationSet>
           <AssociationSet Name="FK_ApplicationVersion_ToTable" Association="Self.FK_ApplicationVersion_ToTable">
             <End Role="AppMain" EntitySet="AppMain" />
-            <End Role="ApplicationVersion" EntitySet="ApplicationVersion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApplicationVersion_ToTable_2" Association="Self.FK_ApplicationVersion_ToTable_2">
-            <End Role="AppServerDB" EntitySet="AppServerDB" />
             <End Role="ApplicationVersion" EntitySet="ApplicationVersion" />
           </AssociationSet>
           <AssociationSet Name="FK_AppMain_ToTable" Association="Self.FK_AppMain_ToTable">
             <End Role="AppVendor" EntitySet="AppVendor" />
             <End Role="AppMain" EntitySet="AppMain" />
           </AssociationSet>
-          <AssociationSet Name="FK_AppServerDB_ToTable" Association="Self.FK_AppServerDB_ToTable">
-            <End Role="AppMain" EntitySet="AppMain" />
+          <AssociationSet Name="FK_AppServerDB_ApplicationVersion" Association="Self.FK_AppServerDB_ApplicationVersion">
+            <End Role="ApplicationVersion" EntitySet="ApplicationVersion" />
             <End Role="AppServerDB" EntitySet="AppServerDB" />
           </AssociationSet>
           <AssociationSet Name="FK_AppSupportInfo_ToTable" Association="Self.FK_AppSupportInfo_ToTable">
@@ -428,22 +327,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AppAssetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AppADGroup">
-          <Key>
-            <PropertyRef Name="AppADID" />
-          </Key>
-          <Property Name="AppADID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ADName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ADDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ADStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ADComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="AppIDFK" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AppMain" Relationship="Self.FK_AppAscHardware_AppMain" FromRole="AppADGroups" ToRole="AppMain" />
-        </EntityType>
         <EntityType Name="AppAscHardware">
           <Key>
             <PropertyRef Name="AppADID" />
@@ -452,32 +335,12 @@
           <Property Name="HardwareName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HardwareType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DocLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AppIDFK" Type="Int32" Nullable="false" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="AppMain" Relationship="Self.FK_AppAscHardware_ToTable" FromRole="AppAscHardware" ToRole="AppMain" />
-        </EntityType>
-        <EntityType Name="AppAscRprt">
-          <Key>
-            <PropertyRef Name="AppServerID" />
-          </Key>
-          <Property Name="AppServerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AppIDFK" Type="Int32" Nullable="false" />
-          <Property Name="AppAscRprtName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="AppAscRprtServer" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="AppAscRprtPATH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="AppAscRprtUA" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="ProductionDate" Type="DateTime" Precision="3" />
-          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="ExpiryFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="AppMain" Relationship="Self.FK_AppAscRprt_ToTable" FromRole="AppAscRprt" ToRole="AppMain" />
         </EntityType>
         <EntityType Name="AppAscSoftware">
           <Key>
@@ -485,15 +348,14 @@
           </Key>
           <Property Name="AppAscSoftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AppIDFK" Type="Int32" Nullable="false" />
-          <Property Name="AppAscServerName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="AppAscServerVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AppAscSoftwareName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AppAscSoftwareVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ProductionDate" Type="DateTime" Precision="0" />
           <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="ExpiryFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="AppMain" Relationship="Self.FK_AppAscSoftware_ToTable" FromRole="AppAscSoftware" ToRole="AppMain" />
         </EntityType>
         <EntityType Name="AppContract">
@@ -509,62 +371,53 @@
           <Property Name="VenContractComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="VenIDFK" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppContract_ToTable" FromRole="AppContract" ToRole="AppVendor" />
-        </EntityType>
-        <EntityType Name="AppExpired">
-          <Key>
-            <PropertyRef Name="ExpireID" />
-          </Key>
-          <Property Name="ExpireID" Type="Int32" Nullable="false" />
-          <Property Name="Expired" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="AppIDFK" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AppMain" Relationship="Self.FK_AppExpired_AppMain" FromRole="AppExpired" ToRole="AppMain" />
+          <NavigationProperty Name="AppMain" Relationship="Self.FK_AppContract_ToTable_1" FromRole="AppContract" ToRole="AppMain" />
         </EntityType>
         <EntityType Name="ApplicationVersion">
           <Key>
             <PropertyRef Name="VersionID" />
           </Key>
           <Property Name="VersionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AppVersion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="AppIE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="AppVersion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AppIE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AppInstallDate" Type="DateTime" Precision="3" />
           <Property Name="AppUpgradeDate" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="AppIDFK" Type="Int32" Nullable="false" />
-          <Property Name="AppServerIDFK" Type="Int32" Nullable="false" />
           <Property Name="VersionStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AppMain" Relationship="Self.FK_ApplicationVersion_ToTable" FromRole="ApplicationVersion" ToRole="AppMain" />
-          <NavigationProperty Name="AppServerDB" Relationship="Self.FK_ApplicationVersion_ToTable_2" FromRole="ApplicationVersion" ToRole="AppServerDB" />
+          <NavigationProperty Name="AppServerDBs" Relationship="Self.FK_AppServerDB_ApplicationVersion" FromRole="ApplicationVersion" ToRole="AppServerDB" />
         </EntityType>
         <EntityType Name="AppMain">
           <Key>
             <PropertyRef Name="AppID" />
           </Key>
-          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="AppID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AppName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AppDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AppType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DeployType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="LiscType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DeployType" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="LiscType" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
           <Property Name="LiscNum" Type="Int32" />
           <Property Name="UserNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="AppAccess" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="VenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VenIDFK" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AppADGroups" Relationship="Self.FK_AppAscHardware_AppMain" FromRole="AppMain" ToRole="AppADGroups" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Expired" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="AppAscHardwares" Relationship="Self.FK_AppAscHardware_ToTable" FromRole="AppMain" ToRole="AppAscHardware" />
-          <NavigationProperty Name="AppAscRprts" Relationship="Self.FK_AppAscRprt_ToTable" FromRole="AppMain" ToRole="AppAscRprt" />
           <NavigationProperty Name="AppAscSoftwares" Relationship="Self.FK_AppAscSoftware_ToTable" FromRole="AppMain" ToRole="AppAscSoftware" />
-          <NavigationProperty Name="AppExpireds" Relationship="Self.FK_AppExpired_AppMain" FromRole="AppMain" ToRole="AppExpired" />
+          <NavigationProperty Name="AppContracts" Relationship="Self.FK_AppContract_ToTable_1" FromRole="AppMain" ToRole="AppContract" />
           <NavigationProperty Name="ApplicationVersions" Relationship="Self.FK_ApplicationVersion_ToTable" FromRole="AppMain" ToRole="ApplicationVersion" />
           <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppMain_ToTable" FromRole="AppMain" ToRole="AppVendor" />
-          <NavigationProperty Name="AppServerDBs" Relationship="Self.FK_AppServerDB_ToTable" FromRole="AppMain" ToRole="AppServerDB" />
           <NavigationProperty Name="AppSupportInfoes" Relationship="Self.FK_AppSupportInfo_ToTable" FromRole="AppMain" ToRole="AppSupportInfo" />
         </EntityType>
         <EntityType Name="AppServerDB">
@@ -572,20 +425,15 @@
             <PropertyRef Name="AppServerID" />
           </Key>
           <Property Name="AppServerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AppIDFK" Type="Int32" Nullable="false" />
-          <Property Name="AppServerName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="VersionIDFK" Type="Int32" Nullable="false" />
+          <Property Name="AppServerName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AppServerType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="AppServerOS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="AppServerURL" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AppServerOS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AppServerURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AppDBType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="AppDBName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AppDBName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AppServerIE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ApplicationVersions" Relationship="Self.FK_ApplicationVersion_ToTable_2" FromRole="AppServerDB" ToRole="ApplicationVersion" />
-          <NavigationProperty Name="AppMain" Relationship="Self.FK_AppServerDB_ToTable" FromRole="AppServerDB" ToRole="AppMain" />
+          <NavigationProperty Name="ApplicationVersion" Relationship="Self.FK_AppServerDB_ApplicationVersion" FromRole="AppServerDB" ToRole="ApplicationVersion" />
         </EntityType>
         <EntityType Name="AppSupportInfo">
           <Key>
@@ -598,12 +446,11 @@
           <Property Name="AppSupportBOG" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="AppSupportPMR" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="AppHours" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="AppAfterHours" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="AppMaintenance" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AppMaintenance" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="AppMain" Relationship="Self.FK_AppSupportInfo_ToTable" FromRole="AppSupportInfo" ToRole="AppMain" />
         </EntityType>
         <EntityType Name="AppVendor">
@@ -614,7 +461,6 @@
           <Property Name="VendName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VendAddr" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="VendURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AppContracts" Relationship="Self.FK_AppContract_ToTable" FromRole="AppVendor" ToRole="AppContract" />
           <NavigationProperty Name="AppMains" Relationship="Self.FK_AppMain_ToTable" FromRole="AppVendor" ToRole="AppMain" />
           <NavigationProperty Name="AppVendorContacts" Relationship="Self.FK_AppVendorContact_ToTable" FromRole="AppVendor" ToRole="AppVendorContact" />
           <NavigationProperty Name="AppVendorSupports" Relationship="Self.FK_AppVendorSupport_ToTable" FromRole="AppVendor" ToRole="AppVendorSupport" />
@@ -624,16 +470,16 @@
             <PropertyRef Name="VenContactID" />
           </Key>
           <Property Name="VenContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VenContactFN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="VenContactLN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VenContactFN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VenContactLN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VenContactTitle" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="VenContactEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="VenContactNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="VenContactStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="VenIDFK" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppVendorContact_ToTable" FromRole="AppVendorContact" ToRole="AppVendor" />
         </EntityType>
@@ -642,25 +488,23 @@
             <PropertyRef Name="VenSupportID" />
           </Key>
           <Property Name="VenSupportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VenSupportHours" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="VenSupportNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="VenSupportEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="VenSupportHours" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VenSupportNum" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="VenSupportEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="VenSupportComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="VenIDFK" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AppVendor" Relationship="Self.FK_AppVendorSupport_ToTable" FromRole="AppVendorSupport" ToRole="AppVendor" />
         </EntityType>
-        <Association Name="FK_AppAscHardware_AppMain">
-          <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
-          <End Role="AppADGroups" Type="Self.AppADGroup" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppMain">
-              <PropertyRef Name="AppID" />
-            </Principal>
-            <Dependent Role="AppADGroups">
-              <PropertyRef Name="AppIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <Association Name="FK_AppAscHardware_ToTable">
           <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
           <End Role="AppAscHardware" Type="Self.AppAscHardware" Multiplicity="*" />
@@ -669,18 +513,6 @@
               <PropertyRef Name="AppID" />
             </Principal>
             <Dependent Role="AppAscHardware">
-              <PropertyRef Name="AppIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AppAscRprt_ToTable">
-          <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
-          <End Role="AppAscRprt" Type="Self.AppAscRprt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppMain">
-              <PropertyRef Name="AppID" />
-            </Principal>
-            <Dependent Role="AppAscRprt">
               <PropertyRef Name="AppIDFK" />
             </Dependent>
           </ReferentialConstraint>
@@ -697,26 +529,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_AppContract_ToTable">
-          <End Role="AppVendor" Type="Self.AppVendor" Multiplicity="1" />
-          <End Role="AppContract" Type="Self.AppContract" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppVendor">
-              <PropertyRef Name="VenID" />
-            </Principal>
-            <Dependent Role="AppContract">
-              <PropertyRef Name="VenIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AppExpired_AppMain">
+        <Association Name="FK_AppContract_ToTable_1">
           <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
-          <End Role="AppExpired" Type="Self.AppExpired" Multiplicity="*" />
+          <End Role="AppContract" Type="Self.AppContract" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AppMain">
               <PropertyRef Name="AppID" />
             </Principal>
-            <Dependent Role="AppExpired">
+            <Dependent Role="AppContract">
               <PropertyRef Name="AppIDFK" />
             </Dependent>
           </ReferentialConstraint>
@@ -733,15 +553,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ApplicationVersion_ToTable_2">
-          <End Role="AppServerDB" Type="Self.AppServerDB" Multiplicity="1" />
-          <End Role="ApplicationVersion" Type="Self.ApplicationVersion" Multiplicity="*" />
+        <Association Name="FK_AppServerDB_ApplicationVersion">
+          <End Role="ApplicationVersion" Type="Self.ApplicationVersion" Multiplicity="1" />
+          <End Role="AppServerDB" Type="Self.AppServerDB" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AppServerDB">
-              <PropertyRef Name="AppServerID" />
+            <Principal Role="ApplicationVersion">
+              <PropertyRef Name="VersionID" />
             </Principal>
-            <Dependent Role="ApplicationVersion">
-              <PropertyRef Name="AppServerIDFK" />
+            <Dependent Role="AppServerDB">
+              <PropertyRef Name="VersionIDFK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -754,18 +574,6 @@
             </Principal>
             <Dependent Role="AppMain">
               <PropertyRef Name="VenIDFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AppServerDB_ToTable">
-          <End Role="AppMain" Type="Self.AppMain" Multiplicity="1" />
-          <End Role="AppServerDB" Type="Self.AppServerDB" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppMain">
-              <PropertyRef Name="AppID" />
-            </Principal>
-            <Dependent Role="AppServerDB">
-              <PropertyRef Name="AppIDFK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -806,12 +614,9 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AppAssetEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AppADGroups" EntityType="Self.AppADGroup" />
           <EntitySet Name="AppAscHardwares" EntityType="Self.AppAscHardware" />
-          <EntitySet Name="AppAscRprts" EntityType="Self.AppAscRprt" />
           <EntitySet Name="AppAscSoftwares" EntityType="Self.AppAscSoftware" />
           <EntitySet Name="AppContracts" EntityType="Self.AppContract" />
-          <EntitySet Name="AppExpireds" EntityType="Self.AppExpired" />
           <EntitySet Name="ApplicationVersions" EntityType="Self.ApplicationVersion" />
           <EntitySet Name="AppMains" EntityType="Self.AppMain" />
           <EntitySet Name="AppServerDBs" EntityType="Self.AppServerDB" />
@@ -819,45 +624,30 @@
           <EntitySet Name="AppVendors" EntityType="Self.AppVendor" />
           <EntitySet Name="AppVendorContacts" EntityType="Self.AppVendorContact" />
           <EntitySet Name="AppVendorSupports" EntityType="Self.AppVendorSupport" />
-          <AssociationSet Name="FK_AppAscHardware_AppMain" Association="Self.FK_AppAscHardware_AppMain">
-            <End Role="AppMain" EntitySet="AppMains" />
-            <End Role="AppADGroups" EntitySet="AppADGroups" />
-          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_AppAscHardware_ToTable" Association="Self.FK_AppAscHardware_ToTable">
             <End Role="AppMain" EntitySet="AppMains" />
             <End Role="AppAscHardware" EntitySet="AppAscHardwares" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AppAscRprt_ToTable" Association="Self.FK_AppAscRprt_ToTable">
-            <End Role="AppMain" EntitySet="AppMains" />
-            <End Role="AppAscRprt" EntitySet="AppAscRprts" />
           </AssociationSet>
           <AssociationSet Name="FK_AppAscSoftware_ToTable" Association="Self.FK_AppAscSoftware_ToTable">
             <End Role="AppMain" EntitySet="AppMains" />
             <End Role="AppAscSoftware" EntitySet="AppAscSoftwares" />
           </AssociationSet>
-          <AssociationSet Name="FK_AppContract_ToTable" Association="Self.FK_AppContract_ToTable">
-            <End Role="AppVendor" EntitySet="AppVendors" />
-            <End Role="AppContract" EntitySet="AppContracts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AppExpired_AppMain" Association="Self.FK_AppExpired_AppMain">
+          <AssociationSet Name="FK_AppContract_ToTable_1" Association="Self.FK_AppContract_ToTable_1">
             <End Role="AppMain" EntitySet="AppMains" />
-            <End Role="AppExpired" EntitySet="AppExpireds" />
+            <End Role="AppContract" EntitySet="AppContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_ApplicationVersion_ToTable" Association="Self.FK_ApplicationVersion_ToTable">
             <End Role="AppMain" EntitySet="AppMains" />
             <End Role="ApplicationVersion" EntitySet="ApplicationVersions" />
           </AssociationSet>
-          <AssociationSet Name="FK_ApplicationVersion_ToTable_2" Association="Self.FK_ApplicationVersion_ToTable_2">
-            <End Role="AppServerDB" EntitySet="AppServerDBs" />
+          <AssociationSet Name="FK_AppServerDB_ApplicationVersion" Association="Self.FK_AppServerDB_ApplicationVersion">
             <End Role="ApplicationVersion" EntitySet="ApplicationVersions" />
+            <End Role="AppServerDB" EntitySet="AppServerDBs" />
           </AssociationSet>
           <AssociationSet Name="FK_AppMain_ToTable" Association="Self.FK_AppMain_ToTable">
             <End Role="AppVendor" EntitySet="AppVendors" />
             <End Role="AppMain" EntitySet="AppMains" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AppServerDB_ToTable" Association="Self.FK_AppServerDB_ToTable">
-            <End Role="AppMain" EntitySet="AppMains" />
-            <End Role="AppServerDB" EntitySet="AppServerDBs" />
           </AssociationSet>
           <AssociationSet Name="FK_AppSupportInfo_ToTable" Association="Self.FK_AppSupportInfo_ToTable">
             <End Role="AppMain" EntitySet="AppMains" />
@@ -878,22 +668,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AppAssetModelStoreContainer" CdmEntityContainer="AppAssetEntities">
-          <EntitySetMapping Name="AppADGroups">
-            <EntityTypeMapping TypeName="AppAssetModel.AppADGroup">
-              <MappingFragment StoreEntitySet="AppADGroups">
-                <ScalarProperty Name="AppADID" ColumnName="AppADID" />
-                <ScalarProperty Name="ADName" ColumnName="ADName" />
-                <ScalarProperty Name="ADDescription" ColumnName="ADDescription" />
-                <ScalarProperty Name="ADStatus" ColumnName="ADStatus" />
-                <ScalarProperty Name="ADComments" ColumnName="ADComments" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AppAscHardwares">
             <EntityTypeMapping TypeName="AppAssetModel.AppAscHardware">
               <MappingFragment StoreEntitySet="AppAscHardware">
@@ -901,27 +675,7 @@
                 <ScalarProperty Name="HardwareName" ColumnName="HardwareName" />
                 <ScalarProperty Name="HardwareType" ColumnName="HardwareType" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="DocLocation" ColumnName="DocLocation" />
                 <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AppAscRprts">
-            <EntityTypeMapping TypeName="AppAssetModel.AppAscRprt">
-              <MappingFragment StoreEntitySet="AppAscRprt">
-                <ScalarProperty Name="AppServerID" ColumnName="AppServerID" />
-                <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
-                <ScalarProperty Name="AppAscRprtName" ColumnName="AppAscRprtName" />
-                <ScalarProperty Name="AppAscRprtServer" ColumnName="AppAscRprtServer" />
-                <ScalarProperty Name="AppAscRprtPATH" ColumnName="AppAscRprtPATH" />
-                <ScalarProperty Name="AppAscRprtUA" ColumnName="AppAscRprtUA" />
-                <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
-                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="ExpiryFlag" ColumnName="ExpiryFlag" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
@@ -934,11 +688,10 @@
               <MappingFragment StoreEntitySet="AppAscSoftware">
                 <ScalarProperty Name="AppAscSoftID" ColumnName="AppAscSoftID" />
                 <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
-                <ScalarProperty Name="AppAscServerName" ColumnName="AppAscServerName" />
-                <ScalarProperty Name="AppAscServerVersion" ColumnName="AppAscServerVersion" />
+                <ScalarProperty Name="AppAscSoftwareName" ColumnName="AppAscSoftwareName" />
+                <ScalarProperty Name="AppAscSoftwareVersion" ColumnName="AppAscSoftwareVersion" />
                 <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
                 <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="ExpiryFlag" ColumnName="ExpiryFlag" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
@@ -960,15 +713,6 @@
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="VenIDFK" ColumnName="VenIDFK" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AppExpireds">
-            <EntityTypeMapping TypeName="AppAssetModel.AppExpired">
-              <MappingFragment StoreEntitySet="AppExpired">
-                <ScalarProperty Name="ExpireID" ColumnName="ExpireID" />
-                <ScalarProperty Name="Expired" ColumnName="Expired" />
                 <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -986,7 +730,6 @@
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
-                <ScalarProperty Name="AppServerIDFK" ColumnName="AppServerIDFK" />
                 <ScalarProperty Name="VersionStatus" ColumnName="VersionStatus" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1003,8 +746,12 @@
                 <ScalarProperty Name="LiscNum" ColumnName="LiscNum" />
                 <ScalarProperty Name="UserNum" ColumnName="UserNum" />
                 <ScalarProperty Name="AppAccess" ColumnName="AppAccess" />
-                <ScalarProperty Name="VenName" ColumnName="VenName" />
                 <ScalarProperty Name="VenIDFK" ColumnName="VenIDFK" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1012,7 +759,7 @@
             <EntityTypeMapping TypeName="AppAssetModel.AppServerDB">
               <MappingFragment StoreEntitySet="AppServerDB">
                 <ScalarProperty Name="AppServerID" ColumnName="AppServerID" />
-                <ScalarProperty Name="AppIDFK" ColumnName="AppIDFK" />
+                <ScalarProperty Name="VersionIDFK" ColumnName="VersionIDFK" />
                 <ScalarProperty Name="AppServerName" ColumnName="AppServerName" />
                 <ScalarProperty Name="AppServerType" ColumnName="AppServerType" />
                 <ScalarProperty Name="AppServerOS" ColumnName="AppServerOS" />
@@ -1020,10 +767,6 @@
                 <ScalarProperty Name="AppDBType" ColumnName="AppDBType" />
                 <ScalarProperty Name="AppDBName" ColumnName="AppDBName" />
                 <ScalarProperty Name="AppServerIE" ColumnName="AppServerIE" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1037,7 +780,6 @@
                 <ScalarProperty Name="AppSupportBOG" ColumnName="AppSupportBOG" />
                 <ScalarProperty Name="AppSupportPMR" ColumnName="AppSupportPMR" />
                 <ScalarProperty Name="AppHours" ColumnName="AppHours" />
-                <ScalarProperty Name="AppAfterHours" ColumnName="AppAfterHours" />
                 <ScalarProperty Name="AppMaintenance" ColumnName="AppMaintenance" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
@@ -1083,6 +825,17 @@
                 <ScalarProperty Name="VenSupportEmail" ColumnName="VenSupportEmail" />
                 <ScalarProperty Name="VenSupportComments" ColumnName="VenSupportComments" />
                 <ScalarProperty Name="VenIDFK" ColumnName="VenIDFK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AppAssetModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
